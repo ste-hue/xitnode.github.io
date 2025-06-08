@@ -8,14 +8,14 @@ tags: [blog, xitnode, digital-garden]
 
 # Benvenuto nel mio spazio
 
-Questo è il primo post di **xitnode** — un nome che nasce dall'unione di "exit" e "node", perché a volte bisogna uscire dai percorsi battuti per trovare nuovi nodi di connessione.
+Questo è il primo post di **xitnode**
 
 ## Cosa aspettarsi
 
 Qui condividerò:
 
 - **Esperimenti** con codice e tecnologie
-- **Riflessioni** su design e creatività  
+- **Riflessioni** su design e creatività
 - **Scoperte** dal mondo open source
 - **Note** sparse dal quotidiano digitale
 

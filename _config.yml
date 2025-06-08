@@ -1,0 +1,27 @@
+title: "xitnode"
+description: "qui inizia lo spazio personale"
+baseurl: ""
+url: "https://ste-hue.github.io/xitnode"
+markdown: kramdown
+theme: minima
+
+# Configurazioni aggiuntive
+author: "ste-hue"
+email: ""
+
+# Build settings
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Timezone
+timezone: Europe/Rome

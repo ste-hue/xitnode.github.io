@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Primo post: qui inizia il viaggio"
+date: 2024-01-15
+categories: [riflessioni, inizio]
+tags: [blog, xitnode, digital-garden]
+---
+
+# Benvenuto nel mio spazio
+
+Questo è il primo post di **xitnode** — un nome che nasce dall'unione di "exit" e "node", perché a volte bisogna uscire dai percorsi battuti per trovare nuovi nodi di connessione.
+
+## Cosa aspettarsi
+
+Qui condividerò:
+
+- **Esperimenti** con codice e tecnologie
+- **Riflessioni** su design e creatività  
+- **Scoperte** dal mondo open source
+- **Note** sparse dal quotidiano digitale
+
+## Il formato
+
+Manterrò tutto **minimale** e **diretto**. Niente fronzoli, solo contenuto che vale la pena condividere.
+
+---
+
+*Post scritto in 5 minuti, pubblicato senza troppi pensieri. Così deve essere.*
+
+<!-- Link interni -->
+[About questo blog](/about) • [Archivio completo](/archive)

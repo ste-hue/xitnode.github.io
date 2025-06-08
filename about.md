@@ -4,34 +4,44 @@ title: "About"
 permalink: /about/
 ---
 
-# Chi sono
+# The Function
 
-Ciao, sono **ste-hue**.
+**xitnode** is a recursive thought transformer—a space where complex ideas get decomposed, simplified, and refined until they reach their atomic essence.
 
-Sviluppatore, maker, esploratore digitale. Mi occupo di codice, design e tutto quello che sta nel mezzo.
+## Core Philosophy
 
-## Cosa faccio
+```lisp
+(define (think x)
+  (if (atomic? x)
+      x
+      (map think (simplify (decompose x)))))
+```
 
-- **Sviluppo** applicazioni web e mobile
-- **Sperimento** con nuove tecnologie
-- **Costruisco** tools per semplificare il lavoro
-- **Condivido** quello che imparo
+Every thought, no matter how tangled, can be broken down into its essential components. Then simplified. Then processed recursively until what remains is **pure signal**.
 
-## Principi
+## Process
 
-**Semplicità** sopra tutto. Il codice migliore è quello che non devi scrivere.
+**Input**: Raw thoughts, chaotic observations, half-formed ideas  
+**Transform**: Decompose → Simplify → Recurse  
+**Output**: Atomic insights you can actually use
 
-**Pragmatismo** prima della perfezione. Meglio fatto che perfetto.
+## What This Means
 
-**Curiosità** costante. Ogni giorno c'è qualcosa di nuovo da imparare.
+- No fluff, no filler
+- Every post distills something complex into something **actionable**
+- Ideas that **compose** with other ideas
+- Thinking patterns over conclusions
 
-## Contatti
+## The Name
 
-- **GitHub**: [@ste-hue](https://github.com/ste-hue)
-- **Email**: *disponibile su richiesta*
+**exit** + **node** = points of departure that connect to other points of departure. 
+
+Each insight is both an **ending** (of confusion) and a **beginning** (of clarity).
 
 ---
 
-*Questo blog è il mio spazio per condividere pensieri, esperimenti e scoperte dal mondo del codice.*
+*This is not a blog. This is a compiler for thoughts.*
 
-[← Torna alla home](/) • [Tutti i post](/archive)
+*Input → Process → Clear output*
+
+[← Back to thoughts](/) • [All recursions](/archive)

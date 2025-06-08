@@ -1,13 +1,14 @@
 title: "xitnode"
-description: "qui inizia lo spazio personale"
+description: "recursive clarity in digital space"
 baseurl: ""
 url: "https://xitnode.com"
 markdown: kramdown
 theme: minima
 
 # Configurazioni aggiuntive
-author: "ste-hue"
+author: "xitnode"
 email: ""
+tagline: "(define (think x) ...)"
 
 # Build settings
 plugins:

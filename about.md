@@ -1,14 +1,15 @@
 ---
 layout: page
 title: "About"
+description: "La funzione ricorsiva del pensiero"
 permalink: /about/
 ---
 
-# The Function
+# La Funzione
 
-**xitnode** is a recursive thought transformer—a space where complex ideas get decomposed, simplified, and refined until they reach their atomic essence.
+**xitnode** è un trasformatore ricorsivo di pensieri—uno spazio dove le idee complesse vengono decomposte, semplificate e raffinate fino a raggiungere la loro essenza atomica.
 
-## Core Philosophy
+## Filosofia di Base
 
 ```lisp
 (define (think x)
@@ -17,31 +18,35 @@ permalink: /about/
       (map think (simplify (decompose x)))))
 ```
 
-Every thought, no matter how tangled, can be broken down into its essential components. Then simplified. Then processed recursively until what remains is **pure signal**.
+Ogni pensiero, non importa quanto intricato, può essere scomposto nei suoi componenti essenziali. Poi semplificato. Poi processato ricorsivamente fino a che rimane solo **puro segnale**.
 
-## Process
+## Processo
 
-**Input**: Raw thoughts, chaotic observations, half-formed ideas  
-**Transform**: Decompose → Simplify → Recurse  
-**Output**: Atomic insights you can actually use
+**Input**: Pensieri grezzi, osservazioni caotiche, idee semi-formate  
+**Trasformazione**: Scomponi → Semplifica → Ricorri  
+**Output**: Insight atomici che puoi effettivamente usare
 
-## What This Means
+## Cosa Significa
 
-- No fluff, no filler
-- Every post distills something complex into something **actionable**
-- Ideas that **compose** with other ideas
-- Thinking patterns over conclusions
+- Niente fronzoli, niente riempitivi
+- Ogni post distilla qualcosa di complesso in qualcosa di **pratico**
+- Idee che si **compongono** con altre idee
+- Modelli di pensiero oltre alle conclusioni
 
-## The Name
+## Il Nome
 
-**exit** + **node** = points of departure that connect to other points of departure. 
+**exit** + **node** = punti di partenza che si connettono ad altri punti di partenza.
 
-Each insight is both an **ending** (of confusion) and a **beginning** (of clarity).
+Ogni insight è sia una **fine** (della confusione) che un **inizio** (di chiarezza).
 
 ---
 
-*This is not a blog. This is a compiler for thoughts.*
+*Questo non è un blog. Questo è un compilatore per pensieri.*
 
-*Input → Process → Clear output*
+*Input → Processo → Output chiaro*
 
-[← Back to thoughts](/) • [All recursions](/archive)
+<div class="about-footer">
+  <p><em>Pagina aggiornata automaticamente con timestamp live</em></p>
+</div>
+
+[← Torna ai pensieri](/) • [Tutte le ricorsioni](/archive)

@@ -1,0 +1,118 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        Pubblicato il {{ page.date | date: date_format }}
+      </time>
+      <br>
+      <time class="dt-updated" datetime="{{ site.time | date_to_xmlschema }}" itemprop="dateModified">
+        <small>Ultimo aggiornamento: {{ site.time | date: "%d/%m/%Y alle %H:%M" }}</small>
+      </time>
+      {%- if page.modified_date -%}
+        <br>
+        <time class="dt-modified" datetime="{{ page.modified_date | date_to_xmlschema }}">
+          <small>Modificato il: {{ page.modified_date | date: "%d/%m/%Y" }}</small>
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <hr>
+    <p class="post-tags">
+      {%- if page.tags.size > 0 -%}
+        <strong>Tags:</strong>
+        {%- for tag in page.tags -%}
+          <span class="tag">#{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      {%- endif -%}
+    </p>
+    
+    {%- if page.categories.size > 0 -%}
+      <p class="post-categories">
+        <strong>Categorie:</strong>
+        {%- for category in page.categories -%}
+          {{ category }}{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      </p>
+    {%- endif -%}
+
+    <div class="post-nav">
+      {%- assign prev_post = page.previous -%}
+      {%- assign next_post = page.next -%}
+      
+      {%- if prev_post or next_post -%}
+        <p>
+          {%- if prev_post -%}
+            ← <a href="{{ prev_post.url | relative_url }}">{{ prev_post.title }}</a>
+          {%- endif -%}
+          {%- if prev_post and next_post -%} • {%- endif -%}
+          {%- if next_post -%}
+            <a href="{{ next_post.url | relative_url }}">{{ next_post.title }}</a> →
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+      
+      <p><a href="{{ '/' | relative_url }}">← Torna alla home</a></p>
+    </div>
+  </footer>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+</article>
+
+<style>
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 1.5em;
+}
+
+.post-meta small {
+  color: #888;
+  font-style: italic;
+}
+
+.post-footer {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.post-tags .tag {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+
+.post-categories {
+  margin: 0.5em 0;
+}
+
+.post-nav {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.post-nav p {
+  margin: 0.5em 0;
+}
+</style>

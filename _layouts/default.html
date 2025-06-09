@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
+    "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
+    "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}",
+    "url": "{{ page.url | absolute_url }}",
+    {% if page.layout == 'post' %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ site.time | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author | default: 'xitnode' }}"
+    },
+    {% endif %}
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}"
+    }
+  }
+  </script>
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  
+  <!-- CSS -->
+  <style>
+    :root {
+      --primary-color: #333;
+      --secondary-color: #666;
+      --accent-color: #007acc;
+      --background-color: #fff;
+      --border-color: #eee;
+      --code-background: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--primary-color);
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.25em; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      background-color: var(--code-background);
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background-color: var(--code-background);
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 1em 0;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--border-color);
+      padding-left: 1em;
+      margin: 1em 0;
+      font-style: italic;
+      color: var(--secondary-color);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 2em 0;
+    }
+
+    .site-header {
+      text-align: center;
+      margin-bottom: 2em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .site-title {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .site-title a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .site-description {
+      color: var(--secondary-color);
+      font-style: italic;
+      margin: 0.5em 0 0 0;
+    }
+
+    .site-footer {
+      text-align: center;
+      margin-top: 3em;
+      padding-top: 2em;
+      border-top: 1px solid var(--border-color);
+      color: var(--secondary-color);
+      font-size: 0.9em;
+    }
+
+    .last-updated {
+      font-size: 0.8em;
+      color: var(--secondary-color);
+      font-style: italic;
+      margin-top: 1em;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1em 0.5em;
+      }
+      
+      .site-title {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="site-header">
+      <h1 class="site-title">
+        <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+      </h1>
+      {% if site.description %}
+        <p class="site-description">{{ site.description | escape }}</p>
+      {% endif %}
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="last-updated">
+        <small>Sito aggiornato il: <span id="site-timestamp"></span></small>
+      </div>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}. Tutti i diritti riservati.</p>
+      <p>{{ site.tagline | default: "recursive clarity in digital space" }}</p>
+    </footer>
+  </div>
+
+  <script>
+    function updateSiteTimestamp() {
+      const now = new Date();
+      const options = { 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit',
+        hour: '2-digit', 
+        minute: '2-digit',
+        timeZone: 'Europe/Rome'
+      };
+      const timestampEl = document.getElementById('site-timestamp');
+      if (timestampEl) {
+        timestampEl.textContent = now.toLocaleString('it-IT', options);
+      }
+    }
+
+    // Inizializza timestamp
+    updateSiteTimestamp();
+    
+    // Aggiorna ogni 2 minuti
+    setInterval(updateSiteTimestamp, 120000);
+  </script>
+</body>
+</html>

@@ -3,38 +3,67 @@ layout: home
 title: "xitnode"
 ---
 
-# (define (think x)
+# (define (exit x)
 
-*recursive clarity in digital space*
+*portale d'uscita dalle narrative fasulle*
 
-## Core Function
+## Manifesto
+
+**Xitnode non è un blog. È un portale d'uscita.**
 
 ```lisp
-(if (atomic? x)
-    x
-    (map think (simplify (decompose x))))
+(if (trapped? x)
+    (decompose x)
+    (compose (exit (car x)) 
+             (exit (cdr x))))
 ```
 
-Every complex thought can be **decomposed** → **simplified** → **recursed** until it reaches its most essential form.
+Un civic trickster che hackera sistemi di controllo con codice + vulnerabilità strategica.
 
-## What You'll Find
+**→ [Leggi il manifesto completo](/2024/01/01/manifesto-portale-uscita.html)**
 
-- **Atomic insights** distilled from chaos
-- **Recursive patterns** in code, life, systems  
-- **Composable thinking** tools
+## Cosa Troverai
 
-## Latest Recursions
+- **Codice che libera** → automazioni che tolgono potere ai gatekeeper
+- **Analisi sistemica incarnata** → come funziona davvero il potere  
+- **Log di costruzione del controllo** → diari di "presa di potere" etica
+- **Vulnerabilità come strategia** → onestà emotiva come arma
 
-*Recent applications of (think x):*
+## Ultime Uscite
 
-{% for post in site.posts limit:3 %}
-- [{{ post.title }}]({{ post.url }}) — *{{ post.date | date: "%b %d" }}*
+*Recent exits from the system:*
+
+{% for post in site.posts limit:4 %}
+- [{{ post.title }}]({{ post.url }}) — *{{ post.date | date: "%d/%m/%Y" }}*
 {% endfor %}
+
+<div class="live-timestamp">
+  <small><em>Pagina aggiornata il: <span id="current-time"></span></em></small>
+</div>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const options = { 
+    year: 'numeric', 
+    month: '2-digit', 
+    day: '2-digit',
+    hour: '2-digit', 
+    minute: '2-digit',
+    timeZone: 'Europe/Rome'
+  };
+  document.getElementById('current-time').textContent = now.toLocaleString('it-IT', options);
+}
+
+// Aggiorna ogni minuto
+updateTime();
+setInterval(updateTime, 60000);
+</script>
 
 ---
 
 *Output = (map think input)*
 
-**Enter** → **Process** → **Exit with clarity**
+**Input** → **Decompose** → **Exit with tools**
 
-[All thoughts](/archive) • [About the function](/about)
+[Mappa delle uscite](/archive) • [Chi sono davvero](/about)

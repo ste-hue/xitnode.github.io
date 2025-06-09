@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<article class="page">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title | escape }}</h1>
+    {% if page.description %}
+      <p class="page-description">{{ page.description | escape }}</p>
+    {% endif %}
+    <div class="page-meta">
+      <small>Pagina aggiornata il: <span id="page-timestamp"></span></small>
+    </div>
+  </header>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+
+  <footer class="page-footer">
+    <hr>
+    <p><a href="{{ '/' | relative_url }}">← Torna alla home</a></p>
+  </footer>
+</article>
+
+<script>
+function updatePageTimestamp() {
+  const now = new Date();
+  const options = { 
+    year: 'numeric', 
+    month: '2-digit', 
+    day: '2-digit',
+    hour: '2-digit', 
+    minute: '2-digit',
+    timeZone: 'Europe/Rome'
+  };
+  const timestampEl = document.getElementById('page-timestamp');
+  if (timestampEl) {
+    timestampEl.textContent = now.toLocaleString('it-IT', options);
+  }
+}
+
+// Inizializza
+updatePageTimestamp();
+
+// Aggiorna ogni minuto
+setInterval(updatePageTimestamp, 60000);
+</script>
+
+<style>
+.page-header {
+  text-align: center;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+}
+
+.page-title {
+  margin-bottom: 0.5em;
+}
+
+.page-description {
+  font-style: italic;
+  color: #666;
+  font-size: 1.1em;
+}
+
+.page-meta {
+  margin-top: 1em;
+  color: #888;
+  font-size: 0.85em;
+}
+
+.page-content {
+  margin: 2em 0;
+}
+
+.page-footer {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.page-footer hr {
+  margin-bottom: 1.5em;
+}
+</style>

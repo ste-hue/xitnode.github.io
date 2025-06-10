@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Manifesto: Xitnode come portale d'uscita"
-date: 2024-01-01
+date: 2025-06-07
 modified_date: 2024-01-25
 categories: [manifesto, filosofia, sistema]
 tags: [xitnode, manifesto, civic-hacker, portale, exit]
@@ -16,11 +16,11 @@ tags: [xitnode, manifesto, civic-hacker, portale, exit]
 Viviamo in un sistema di **narrative fasulle** che ci obbliga a scegliere identità monolitiche:
 
 - Sei tecnico **o** umanista
-- Sei globale **o** locale  
+- Sei globale **o** locale
 - Sei strategico **o** vulnerabile
 - Sei dentro il sistema **o** fuori
 
-**Falso dilemma.** 
+**Falso dilemma.**
 
 La realtà è ibrida, recursiva, sfaccettata. Ma il sistema ha bisogno di categorie nette per controllarci.
 
@@ -30,7 +30,7 @@ La realtà è ibrida, recursiva, sfaccettata. Ma il sistema ha bisogno di catego
 (define (exit x)
   (if (trapped? x)
       (decompose x)
-      (compose (exit (car x)) 
+      (compose (exit (car x))
                (exit (cdr x)))))
 ```
 
@@ -70,7 +70,7 @@ Non sono:
 - Un guru della crescita personale (non vendo corsi, costruisco sistemi)
 - Un critico accademico (parlo di cose che faccio, non che studio)
 
-Sono un **civic trickster**: 
+Sono un **civic trickster**:
 - Hackero le strutture di controllo con intelligenza tecnica
 - Uso la vulnerabilità dichiarata come forma di potere
 - Costruisco ponti tra mondi che il sistema vuole separati
@@ -80,7 +80,7 @@ Sono un **civic trickster**:
 
 ### Input
 - Sistemi che mi intrappolano
-- Narrative che mi limitano  
+- Narrative che mi limitano
 - Problemi concreti che devo risolvere
 - Contraddizioni che devo attraversare
 
@@ -105,12 +105,12 @@ Decomporre → Analizzare → Codificare → Condividere
 
 ## Manifesto Operativo
 
-**Non sto documentando la mia vita.**  
+**Non sto documentando la mia vita.**
 **Sto costruendo vie d'uscita.**
 
 Ogni post è:
 - Un **nodo** in una rete di alternative concrete
-- Un **diff** tra il sistema attuale e quello possibile  
+- Un **diff** tra il sistema attuale e quello possibile
 - Un **commit** verso l'indipendenza sistemica
 - Un **merge** di competenze che il sistema vuole separate
 
@@ -144,8 +144,8 @@ Tu porti:
 
 Qui non commentiamo il sistema. **Lo riprogetttiamo.**
 
-Un commit alla volta.  
-Un hack alla volta.  
+Un commit alla volta.
+Un hack alla volta.
 Un'uscita alla volta.
 
 ```lisp
@@ -153,12 +153,12 @@ Un'uscita alla volta.
 (map exit (decompose world))
 ```
 
-*Tutto il codice, tutti i processi, tutte le strategie condivise qui sono replicabili.*  
+*Tutto il codice, tutti i processi, tutte le strategie condivise qui sono replicabili.*
 *Non serve permesso. Serve solo la volontà di costruire qualcosa di migliore.*
 
 **[Accedi al repository completo](https://github.com/xitnode) • [Mappa delle uscite](/archive) • [Chi sono davvero](/about)**
 
 ---
 
-*Post scritto il primo gennaio 2024. Data simbolica intenzionale.*  
+*Post scritto il primo gennaio 2024. Data simbolica intenzionale.*
 *Primo commit del progetto di liberazione sistemica.*

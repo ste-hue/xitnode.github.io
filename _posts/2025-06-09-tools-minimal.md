@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tools: meno è meglio"
-date: 2024-01-20
+date: 2025-06-09
 categories: [tech, workflow]
 tags: [tools, minimalism, productivity]
 ---

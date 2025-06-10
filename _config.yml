@@ -13,6 +13,7 @@ tagline: "(define (think x) ...)"
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 
 # Exclude from processing
 exclude:

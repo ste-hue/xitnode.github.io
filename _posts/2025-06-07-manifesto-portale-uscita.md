@@ -44,12 +44,12 @@ Ogni post decompone un sistema di controllo invisibile e lo ricompone in qualcos
 - Automazioni che tolgono potere ai gatekeeper
 - Open source con impatto territoriale reale
 - Architetture che rendono obsoleti gli intermediari parassiti
-- Script che trasformano hotels in Maiori in laboratori di indipendenza economica
+- Sistemi che trasformano asset sottoutilizzati in laboratori di valore
 
 ### 2. Analisi Sistemica Incarnata
 - Come funziona davvero il potere (non la teoria, la pratica)
 - Governance familiare e aziendale come micropolitica
-- Sud Italia vs Silicon Valley: dissonanze identitarie reali
+- Periferia vs centro: dissonanze identitarie come materiale di costruzione
 - Strategie di uscita dai sistemi di dipendenza
 
 ### 3. Log di Costruzione del Controllo
@@ -101,7 +101,7 @@ Decomporre → Analizzare → Codificare → Condividere
 2. **Vulnerabilità strategica**: gli errori sono materiale di costruzione
 3. **Ibrido per design**: tecnico + umano + politico sempre insieme
 4. **Open source del pensiero**: tutto replicabile, niente guru-worship
-5. **Locale + globale**: Maiori e Silicon Valley sono lo stesso sistema
+5. **Locale + globale**: periferia e centro sono lo stesso sistema
 
 ## Manifesto Operativo
 
@@ -160,5 +160,5 @@ Un'uscita alla volta.
 
 ---
 
-*Post scritto il primo gennaio 2024. Data simbolica intenzionale.*
-*Primo commit del progetto di liberazione sistemica.*
+*Manifesto in evoluzione continua.*
+*Ogni commit è un'iterazione verso l'uscita.*

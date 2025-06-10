@@ -2,7 +2,6 @@
 layout: post
 title: "Primo post: qui inizia il viaggio"
 date: 2025-06-07
-modified_date: 2025-06-08
 categories: [riflessioni, inizio]
 tags: [blog, xitnode, digital-garden]
 ---

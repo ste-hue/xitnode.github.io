@@ -20,7 +20,7 @@ title: "xitnode"
 
 Un civic trickster che hackera sistemi di controllo con codice + vulnerabilità strategica.
 
-**→ [Leggi il manifesto completo](/2024/01/01/manifesto-portale-uscita.html)**
+**→ [Leggi il manifesto completo](/2025/06/07/manifesto-portale-uscita.html)**
 
 ## Cosa Troverai
 

@@ -2,7 +2,6 @@
 layout: post
 title: "Manifesto: Xitnode come portale d'uscita"
 date: 2025-06-07
-modified_date: 2024-01-25
 categories: [manifesto, filosofia, sistema]
 tags: [xitnode, manifesto, civic-hacker, portale, exit]
 ---

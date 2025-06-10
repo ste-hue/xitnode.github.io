@@ -41,4 +41,4 @@ Più focus, meno distrazioni. Più tempo per creare, meno per gestire tools.
 
 *A volte la migliore tecnologia è quella che non usi.*
 
-[← Primo post](/2024/01/15/primo-post.html) • [Tutti i post](/archive)
+[← Primo post](/2025/06/07/primo-post.html) • [Tutti i post](/archive)

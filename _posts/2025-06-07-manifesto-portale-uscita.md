@@ -1,143 +1,107 @@
-Certo. Eccolo.
+Giusto. Maiori è troppo identificabile.
+Non serve. Ti espone senza aggiungere nulla.
+E Xitnode non è un luogo. È una postura.
 
----
+Ecco allora la versione de-doxata, in forma di README.localhost.md —
+pronto per stare in _internal/ o /_drafts/, senza mai usare “noi”, “manifesto”, o riferimenti geografici diretti.
 
-# **🧨** 
-
-# **MANIFESTO XITNODE**
-
-
-
-### **Scriviamo come se fossimo l’ultima cosa lucida rimasta tra un bando e un blackout.**
-
----
-
-## **1.** 
-
-## **Perché esistiamo**
-
-
-
-Perché troppe narrazioni nascono già filtrate.
-
-Perché la modernità in Italia è spesso una messa in scena.
-
-Perché chiamano “digitalizzazione” l’upload di una farsa.
-
-Perché il potere si è fatto interfaccia utente — e noi vogliamo leggerne il codice sorgente.
-
----
-
-## **2.** 
-
-## **Cosa facciamo**
-
-
-
-Smontiamo sistemi, linguaggi, abitudini che si fingono inevitabili.
-
-Analizziamo la realtà come fosse un bug da isolare,
-
-un algoritmo da de-obfuscate,
-
-un bilancio da leggere riga per riga.
-
-Poi, se serve, riscriviamo.
-
----
-
-## **3.** 
-
-## **Come scriviamo**
-
-- Markdown, non PowerPoint.
-
-- Frasi corte, pensieri lunghi.
-
-- Nessuna reverenza per l’istituzione, nessuna indulgenza per l’ideologia.
-
-- Se c’è una frase fatta, la tagliamo. Se c’è una verità scomoda, la pubblichiamo.
+⸻
 
 
 ---
+layout: post
+title: "README.localhost"
+date: 2025-06-07
+categories: [internal, protocol, base]
+tags: [xitnode, system, init]
+---
 
-## **4.** 
+# XN-000 :: README.localhost
 
-## **Dove stiamo**
-
-
-
-In un vault su Obsidian, in un repo su GitHub, in una mente che ha capito che il CSV mente.
-
-Tra Maiori e Berlino.
-
-Tra il piano regolatore e una shell aperta.
-
-Siamo _un nodo_, non un brand.
+> Documento di orientamento operativo per sistemi XN attivi in ambienti locali distribuiti.
+> Questo file non presenta. Non promuove. Descrive.
 
 ---
 
-## **5.** 
+## [0] Origine
 
-## **Cosa vogliamo**
-
-- Riconoscere la finzione, ma non subirla.
-
-- Costruire alternative minime, leggibili, umane.
-
-- Fare del Mezzogiorno un laboratorio, non un pretesto.
-
-- Coltivare senso critico, senso pratico, senso del limite.
-
+Narrative filtrate →
+Modernità performativa →
+Falsi binari tra tecnologia e identità →
+“Digitalizzazione” come scenografia bandita.
 
 ---
 
-## **6.** 
+## [1] Scopo
 
-## **A chi parliamo**
+Smontare routine, linguaggi e interfacce che si fingono neutrali.
 
+Ogni nodo attivo:
 
-
-A chi è stanco dei consulenti che spiegano l’ovvio.
-
-A chi vede l’eleganza nei dati grezzi.
-
-A chi vive nei margini tra governance e sopravvivenza.
-
-A chi non cerca conferme, ma strumenti.
+- Interpreta la realtà come bug, exploit o stack corrotto
+- Ricompone strumenti minimi, modulari, leggibili
+- Documenta senza abbellire
 
 ---
 
-## **7.** 
+## [2] Output
 
-## **Cosa non siamo**
-
-
-
-❌ Un think tank
-
-❌ Un progetto editoriale
-
-❌ Un collettivo di design
-
-❌ Un acceleratore di territori
-
-
-
-Siamo una funzione civile che gira in locale.
-
-Una voce di log ignorata.
-
-Un exploit etico.
+- `.md` prima di `.ppt`
+- Nessun onboarding, solo log
+- Nessun io, nessun brand
+- Contenuto ≠ opinione.
+- Se c'è una frase fatta → tagliala
+- Se c'è un passaggio oscuro → decompilalo
 
 ---
 
-## **8.** 
+## [3] Posizione
 
-## **La regola madre**
-
-
-
-> **Se non puoi cambiarlo, leggilo. Se non puoi leggerlo, esponilo. Se non puoi esporlo, sabotane il lessico.**
+Nodo attivo =
+una shell + un foglio + accesso lettura/scrittura su un sistema incrostato.
+Né centro, né periferia.
+**Sistema embedded.**
 
 ---
+
+## [4] Comportamenti osservabili
+
+- Si parla per evidenza, non per status
+- Si documenta in locale
+- Si condivide senza evangelizzare
+- Si analizzano documenti che nessuno legge
+- Si creano tool invece di dare consigli
+
+---
+
+## [5] Regole Minime
+
+if (non puoi cambiarlo)
+leggilo
+else if (non puoi leggerlo)
+esponilo
+else
+sabotane il lessico
+
+---
+
+## [6] Modalità di accesso
+
+Chi arriva qui, lo trova.
+Chi lo trova, capisce.
+Chi capisce, scrive.
+
+No mailing list.
+No presentazioni.
+Solo output tracciabile.
+
+---
+
+## [EOF]
+
+Fammi sapere se vuoi:
+	•	generare il file fisico .md
+	•	creare anche un config.yml per separare pubblico/privato
+	•	automatizzare l’inclusione di questi file nei deploy ma solo se sei in debug mode
+
+Questo ora non doxa niente. Ma dice tutto.

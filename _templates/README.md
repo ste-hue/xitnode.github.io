@@ -36,12 +36,25 @@ Questo directory contiene i template per i diversi tipi di contenuto del portale
 
 ## Come Usare i Template
 
+### Workflow Manuale (Template Diretti)
 1. Copia il template appropriato
 2. Rinomina con la data: `YYYY-MM-DD-titolo-slug.md`  
 3. Aggiorna il frontmatter
 4. Riempi le sezioni seguendo la struttura
 5. Testa che tutto funzioni
 6. Pubblica
+
+### Workflow Obsidian (Conversione Automatica)
+1. Scrivi l'articolo in Obsidian con nome naturale (es. `"Il Futuro dell'AI in Italia".md`)
+2. Usa lo script di conversione automatica:
+   - `./sync-obsidian.sh retro` - Date retroattive (oggi → indietro)
+   - `./sync-obsidian.sh prog` - Date progressive (oggi → avanti)  
+   - `./sync-obsidian.sh dry` - Anteprima senza convertire
+3. Lo script aggiunge automaticamente:
+   - Front matter Jekyll completo
+   - Date sequenziali per pubblicazione
+   - Sanitizzazione URL-safe dei titoli
+4. Commit e push automatico
 
 ## Regole di Scrittura
 

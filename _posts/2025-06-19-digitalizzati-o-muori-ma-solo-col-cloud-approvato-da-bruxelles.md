@@ -8,7 +8,7 @@ tags: [xitnode, ossessione]
 
 Ti vogliamo innovativo, purché tu usi lo stesso gestionale del consorzio dei lampadari del Triveneto.
 
-# **🏛️ La nuova religione:**
+# **La nuova religione:**
 
 # **Digitalizzazione a norma di bando**
 
@@ -24,7 +24,7 @@ Quindi quando dicono “trasformazione digitale”, quello che intendono è:
 
 Ti digitalizzano, ma con il freno a mano tirato, l’F24 in tasca e il badge del Ministero sul desktop.
 
-# **🧠 Perché lo fanno?**
+# **Perché lo fanno?**
 
 Perché la vera digitalizzazione è pericolosa.
 
@@ -39,7 +39,7 @@ E quindi, invece di aiutarti a usare BigQuery, GitHub Actions, Zapier, Colab, St
 
 Tradotto: ti fanno pagare per usare un gestionale che non parla con niente, che poi devi stampare per mandarlo al commercialista su WhatsApp.
 
-# **🐌 Digitalizzazione senza leverage = folklore modernizzato**
+# **Digitalizzazione senza leverage = folklore modernizzato**
 
 Quello che vogliono è una cartolina più veloce.
 
@@ -51,7 +51,7 @@ Hanno preso il Sud, il turismo, le PMI, e ci hanno messo sopra un’app che cras
 
 E poi ti dicono che “sei digitale”.
 
-# **🛠️ La verità è che…**
+# **La verità è che…**
 
 Se vuoi davvero innovare, sei da solo.
 
@@ -65,7 +65,7 @@ Ma il punto è che l’Italia non è progettata per scalare.
 
 È progettata per frenarti con stile.
 
-# **🧩 Conclusione: vuoi il mio consiglio?**
+# **Conclusione: vuoi il mio consiglio?**
 
 Partecipa ai bandi.
 

@@ -2,8 +2,8 @@
 layout: post
 title: "L Inganno Di Amalfi"
 date: 2025-06-17
-categories: ['xitnode']
-tags: ['xitnode', 'ossessione']
+categories: [xitnode]
+tags: [xitnode, ossessione]
 ---
 
 

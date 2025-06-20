@@ -166,12 +166,14 @@ def create_jekyll_post(obsidian_file, date, target_dir):
 
     # Create front matter if not exists
     if not content.strip().startswith("---"):
+        categories_yaml = "[" + ", ".join(DEFAULT_CATEGORIES) + "]"
+        tags_yaml = "[" + ", ".join(DEFAULT_TAGS) + "]"
         front_matter = f"""---
 layout: post
 title: "{raw_title}"
 date: {date}
-categories: {DEFAULT_CATEGORIES}
-tags: {DEFAULT_TAGS}
+categories: {categories_yaml}
+tags: {tags_yaml}
 ---
 
 """

@@ -2,8 +2,8 @@
 layout: post
 title: "Digitalizzati O Muori Ma Solo Col Cloud Approvato Da Bruxelles"
 date: 2025-06-19
-categories: ['xitnode']
-tags: ['xitnode', 'ossessione']
+categories: [xitnode]
+tags: [xitnode, ossessione]
 ---
 
 Ti vogliamo innovativo, purché tu usi lo stesso gestionale del consorzio dei lampadari del Triveneto.

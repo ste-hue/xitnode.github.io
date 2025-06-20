@@ -2,8 +2,8 @@
 layout: post
 title: "L Italia Come Economia Dell Inefficienza Protetta"
 date: 2025-06-20
-categories: ['xitnode']
-tags: ['xitnode', 'ossessione']
+categories: [xitnode]
+tags: [xitnode, ossessione]
 ---
 
 C’è un grande patto non scritto che regge l’equilibrio sociale italiano:

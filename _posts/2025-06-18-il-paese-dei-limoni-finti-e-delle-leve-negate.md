@@ -2,8 +2,8 @@
 layout: post
 title: "Il Paese Dei Limoni Finti E Delle Leve Negate"
 date: 2025-06-18
-categories: ['xitnode']
-tags: ['xitnode', 'ossessione']
+categories: [xitnode]
+tags: [xitnode, ossessione]
 ---
 
 **Perché l’Italia non vuole davvero essere sollevata**

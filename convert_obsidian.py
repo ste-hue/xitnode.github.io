@@ -16,6 +16,31 @@ JEKYLL_POSTS_DIR = "_posts"
 DEFAULT_CATEGORIES = ["xitnode"]
 DEFAULT_TAGS = ["xitnode", "ossessione"]
 
+def fix_apostrophes(title):
+    """Fix common Italian apostrophe patterns"""
+    apostrophe_fixes = {
+        # Common Italian contractions
+        r'\bL\s+([AEIOU])\w+': r"L'\1",  # L + vowel -> L'
+        r'\bDell\s+([AEIOU])\w+': r"dell'\1",  # Dell + vowel -> dell'
+        r'\bNell\s+([AEIOU])\w+': r"nell'\1",  # Nell + vowel -> nell'
+        r'\bSull\s+([AEIOU])\w+': r"sull'\1",  # Sull + vowel -> sull'
+        r'\bAll\s+([AEIOU])\w+': r"all'\1",   # All + vowel -> all'
+
+        # Specific common cases
+        r'\bL\s+Italia\b': "L'Italia",
+        r'\bL\s+Inganno\b': "L'Inganno",
+        r'\bL\s+([aeiou])\w*': r"l'\1",  # lowercase l + vowel
+        r'\bDell\s+([aeiou])\w*': r"dell'\1",
+        r'\bNell\s+([aeiou])\w*': r"nell'\1",
+    }
+
+    import re
+    fixed_title = title
+    for pattern, replacement in apostrophe_fixes.items():
+        fixed_title = re.sub(pattern, replacement, fixed_title, flags=re.IGNORECASE)
+
+    return fixed_title
+
 def extract_clean_title(filename):
     """Extract clean title from filename, removing date prefix if present"""
     import re
@@ -32,6 +57,8 @@ def extract_clean_title(filename):
         title = title.replace('-', ' ').strip()
         # Capitalize first letter of each word
         title = ' '.join(word.capitalize() for word in title.split())
+        # Fix apostrophes
+        title = fix_apostrophes(title)
 
     return title
 

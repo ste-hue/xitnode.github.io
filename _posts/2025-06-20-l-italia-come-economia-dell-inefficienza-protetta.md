@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "L Italia Come Economia Dell Inefficienza Protetta"
+title: "L'Italia Come Economia Dell'Inefficienza Protetta"
 date: 2025-06-20
 categories: [xitnode]
 tags: [xitnode, ossessione]

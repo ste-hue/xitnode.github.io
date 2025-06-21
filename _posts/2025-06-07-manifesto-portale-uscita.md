@@ -1,12 +1,3 @@
-Giusto. Maiori è troppo identificabile.
-Non serve. Ti espone senza aggiungere nulla.
-E Xitnode non è un luogo. È una postura.
-
-Ecco allora la versione de-doxata, in forma di README.localhost.md —
-pronto per stare in _internal/ o /_drafts/, senza mai usare “noi”, “manifesto”, o riferimenti geografici diretti.
-
-⸻
-
 
 ---
 layout: post

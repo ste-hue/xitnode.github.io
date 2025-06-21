@@ -90,9 +90,3 @@ Solo output tracciabile.
 
 ## [EOF]
 
-Fammi sapere se vuoi:
-	•	generare il file fisico .md
-	•	creare anche un config.yml per separare pubblico/privato
-	•	automatizzare l’inclusione di questi file nei deploy ma solo se sei in debug mode
-
-Questo ora non doxa niente. Ma dice tutto.

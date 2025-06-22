@@ -8,7 +8,7 @@ tags: [xitnode, ossessione]
 
 **Perché l’Italia non vuole davvero essere sollevata**
 
-**🇮🇹 Il lavoro è sacro. Ma solo se inefficiente.**
+**Il lavoro è sacro. Ma solo se inefficiente.**
 
 In Italia, il lavoro è un diritto, certo.
 
@@ -48,7 +48,7 @@ Mi si chiede di fare il “figlio dei miei avi”, con la stessa fatica e le ste
 
 ma senza più né contesto né motivazione storica.
 
-**🧠 La mia leva è digitale.**
+**La mia leva è digitale.**
 
 Io non voglio “non lavorare”.
 

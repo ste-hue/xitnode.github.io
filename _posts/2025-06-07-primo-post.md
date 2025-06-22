@@ -21,9 +21,6 @@ Qui condividerò:
 
 ## Il formato
 
-Manterrò tutto **minimale** e **diretto**. Niente fronzoli, solo contenuto che vale la pena condividere.
-
----
 
 *Post scritto in 5 minuti, pubblicato senza troppi pensieri. Così deve essere.*
 

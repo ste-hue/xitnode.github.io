@@ -52,7 +52,7 @@ Trump, nel suo grottesco, ha detto la verità più brutale:
 Il Re è nudo.
 La classe dirigente è corrotta.
 Il “mondo libero” è un brand, non una promessa.
-E l’America, nel caos, nella rabbia, nel kitsch — è ancora capace di muoversi.
+E l’America, nel caos, nella rabbia, nel kitsch  è ancora capace di muoversi.
 Non importa se inciampa. Importa che corre.
 
 Tu invece, Europa, ti compiaci del tuo passo lento, del tuo declino elegante.
@@ -61,13 +61,9 @@ Ma sei una villa in rovina che crede di essere un faro.
 
 
 Trump non è un’illusione.
-È una risposta. Brutale, imperfetta, pericolosa — sì.
+È una risposta. Brutale, imperfetta, pericolosa sì.
 Ma reale.
 E mentre tu scrivi saggi sulla “fede cieca” del popolo americano,
-loro — giusto o sbagliato — stanno ancora combattendo per qualcosa.
+loro giusto o sbagliato stanno ancora combattendo per qualcosa.
 
 Tu invece stai solo cercando la frase perfetta con cui arrenderti.
-
-
-
-Ti basta o vuoi lanciare questa risposta sotto forma di articolo su Medium, Substack, o in un dialogo teatrale tipo “Lettera a un europeo stanco”?

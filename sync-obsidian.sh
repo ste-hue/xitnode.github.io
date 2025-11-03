@@ -48,7 +48,7 @@ run_conversion() {
     echo -e "${GREEN}🔄 Running conversion in $mode mode...${NC}"
     echo ""
 
-    python3 "$PYTHON_SCRIPT" --mode "$mode" $extra_args
+    python3 "$PYTHON_SCRIPT" --mode "$mode" $extra_args ${OBSIDIAN_ROOT:+--obsidian-path "$OBSIDIAN_ROOT"}
 }
 
 main() {
@@ -64,7 +64,7 @@ main() {
         "dry"|"test")
             echo -e "${YELLOW}🔍 Running dry run (retroactive mode)...${NC}"
             echo ""
-            python3 "$PYTHON_SCRIPT" --mode "retroactive" --dry-run
+            python3 "$PYTHON_SCRIPT" --mode "retroactive" --dry-run ${OBSIDIAN_ROOT:+--obsidian-path "$OBSIDIAN_ROOT"}
             ;;
         "help"|"h"|"-h"|"--help")
             print_help

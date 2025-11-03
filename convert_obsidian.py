@@ -9,37 +9,74 @@ import glob
 from datetime import datetime, timedelta
 import argparse
 import sys
+from pathlib import Path
 
 # Configuration
-OBSIDIAN_DIR = "/Users/stefanodellapietra/Documents/Obsidian Vault/Xitnode"
 JEKYLL_POSTS_DIR = "_posts"
 DEFAULT_CATEGORIES = ["xitnode"]
 DEFAULT_TAGS = ["xitnode", "ossessione"]
+
+
+def find_obsidian_root(cli_arg=None):
+    """Find Obsidian vault root directory with intelligent path resolution"""
+    # 1) CLI flag wins
+    if cli_arg:
+        p = Path(cli_arg).expanduser()
+        if p.exists():
+            return p
+        print(f"❌ Provided --obsidian-path not found: {p}", file=sys.stderr)
+        sys.exit(1)
+
+    # 2) ENV wins next
+    env = os.environ.get("OBSIDIAN_ROOT")
+    if env:
+        p = Path(env).expanduser()
+        if p.exists():
+            return p
+
+    # 3) Common candidates (Documents + iCloud Drive)
+    candidates = [
+        "~/Documents/Obsidian Vault/Xitnode",
+        "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Obsidian Vault/Xitnode",
+        "~/iCloud Drive/Documents/Obsidian Vault/Xitnode",  # alcuni mac mostrano così
+    ]
+    for c in candidates:
+        p = Path(c).expanduser()
+        if p.exists():
+            return p
+
+    print("❌ Obsidian directory not found in any known location.", file=sys.stderr)
+    print("   Searched paths:", file=sys.stderr)
+    for c in candidates:
+        print(f"   - {Path(c).expanduser()}", file=sys.stderr)
+    sys.exit(1)
+
 
 def fix_apostrophes(title):
     """Fix common Italian apostrophe patterns"""
     apostrophe_fixes = {
         # Common Italian contractions
-        r'\bL\s+([AEIOU])\w+': r"L'\1",  # L + vowel -> L'
-        r'\bDell\s+([AEIOU])\w+': r"dell'\1",  # Dell + vowel -> dell'
-        r'\bNell\s+([AEIOU])\w+': r"nell'\1",  # Nell + vowel -> nell'
-        r'\bSull\s+([AEIOU])\w+': r"sull'\1",  # Sull + vowel -> sull'
-        r'\bAll\s+([AEIOU])\w+': r"all'\1",   # All + vowel -> all'
-
+        r"\bL\s+([AEIOU])\w+": r"L'\1",  # L + vowel -> L'
+        r"\bDell\s+([AEIOU])\w+": r"dell'\1",  # Dell + vowel -> dell'
+        r"\bNell\s+([AEIOU])\w+": r"nell'\1",  # Nell + vowel -> nell'
+        r"\bSull\s+([AEIOU])\w+": r"sull'\1",  # Sull + vowel -> sull'
+        r"\bAll\s+([AEIOU])\w+": r"all'\1",  # All + vowel -> all'
         # Specific common cases
-        r'\bL\s+Italia\b': "L'Italia",
-        r'\bL\s+Inganno\b': "L'Inganno",
-        r'\bL\s+([aeiou])\w*': r"l'\1",  # lowercase l + vowel
-        r'\bDell\s+([aeiou])\w*': r"dell'\1",
-        r'\bNell\s+([aeiou])\w*': r"nell'\1",
+        r"\bL\s+Italia\b": "L'Italia",
+        r"\bL\s+Inganno\b": "L'Inganno",
+        r"\bL\s+([aeiou])\w*": r"l'\1",  # lowercase l + vowel
+        r"\bDell\s+([aeiou])\w*": r"dell'\1",
+        r"\bNell\s+([aeiou])\w*": r"nell'\1",
     }
 
     import re
+
     fixed_title = title
     for pattern, replacement in apostrophe_fixes.items():
         fixed_title = re.sub(pattern, replacement, fixed_title, flags=re.IGNORECASE)
 
     return fixed_title
+
 
 def extract_clean_title(filename):
     """Extract clean title from filename, removing date prefix if present"""
@@ -49,24 +86,28 @@ def extract_clean_title(filename):
     title = filename.replace(".md", "")
 
     # Check if filename starts with date pattern (YYYY-MM-DD-)
-    date_pattern = r'^\d{4}-\d{2}-\d{2}-'
+    date_pattern = r"^\d{4}-\d{2}-\d{2}-"
     if re.match(date_pattern, title):
         # Remove the date prefix
-        title = re.sub(date_pattern, '', title)
+        title = re.sub(date_pattern, "", title)
         # Convert dashes back to spaces and clean up
-        title = title.replace('-', ' ').strip()
+        title = title.replace("-", " ").strip()
         # Capitalize first letter of each word
-        title = ' '.join(word.capitalize() for word in title.split())
+        title = " ".join(word.capitalize() for word in title.split())
         # Fix apostrophes
         title = fix_apostrophes(title)
 
     return title
 
+
 def sanitize_title(title):
     """Convert title to URL-safe slug"""
     return (
-        title.replace(""", "")
-        .replace(""", "")
+        title.replace(
+            """, "")
+        .replace(""",
+            "",
+        )
         .replace("'", "")
         .replace("'", "")
         .replace(",", "")
@@ -92,6 +133,7 @@ def sanitize_title(title):
         .lower()
     )
 
+
 def is_already_converted(obsidian_file, target_dir):
     """Check if an Obsidian file has already been converted to Jekyll format"""
     filename = os.path.basename(obsidian_file)
@@ -107,17 +149,18 @@ def is_already_converted(obsidian_file, target_dir):
 
     return len(existing_files) > 0
 
-def get_obsidian_files(target_dir=None, skip_converted=False):
+
+def get_obsidian_files(obsidian_root, target_dir=None, skip_converted=False):
     """Get all .md files from Obsidian directory"""
-    if not os.path.exists(OBSIDIAN_DIR):
-        print(f"❌ Obsidian directory not found: {OBSIDIAN_DIR}")
+    if not obsidian_root.exists():
+        print(f"❌ Obsidian directory not found: {obsidian_root}")
         sys.exit(1)
 
-    pattern = os.path.join(OBSIDIAN_DIR, "*.md")
+    pattern = os.path.join(str(obsidian_root), "*.md")
     all_files = glob.glob(pattern)
 
     if not all_files:
-        print(f"❌ No .md files found in {OBSIDIAN_DIR}")
+        print(f"❌ No .md files found in {obsidian_root}")
         sys.exit(1)
 
     files = []
@@ -147,6 +190,7 @@ def get_obsidian_files(target_dir=None, skip_converted=False):
 
     return files
 
+
 def generate_dates(num_files, mode="retroactive"):
     """Generate dates for posts"""
     today = datetime.now()
@@ -170,6 +214,7 @@ def generate_dates(num_files, mode="retroactive"):
         raise ValueError("Mode must be 'retroactive' or 'progressive'")
 
     return dates
+
 
 def create_jekyll_post(obsidian_file, date, target_dir):
     """Convert single Obsidian file to Jekyll post"""
@@ -219,28 +264,34 @@ tags: {tags_yaml}
         print(f"❌ Error writing {target_path}: {e}")
         return False
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Convert Obsidian files to Jekyll posts")
+    parser = argparse.ArgumentParser(
+        description="Convert Obsidian files to Jekyll posts"
+    )
     parser.add_argument(
         "--mode",
         choices=["retroactive", "progressive"],
         default="retroactive",
-        help="Date assignment mode: retroactive (today backwards) or progressive (today forwards)"
+        help="Date assignment mode: retroactive (today backwards) or progressive (today forwards)",
     )
     parser.add_argument(
         "--target-dir",
         default=JEKYLL_POSTS_DIR,
-        help=f"Target directory for Jekyll posts (default: {JEKYLL_POSTS_DIR})"
+        help=f"Target directory for Jekyll posts (default: {JEKYLL_POSTS_DIR})",
     )
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Show what would be done without actually converting files"
+        help="Show what would be done without actually converting files",
     )
     parser.add_argument(
         "--skip-converted",
         action="store_true",
-        help="Skip files that have already been converted to Jekyll format"
+        help="Skip files that have already been converted to Jekyll format",
+    )
+    parser.add_argument(
+        "--obsidian-path", help="Path to Obsidian vault (folder containing notes)"
     )
 
     args = parser.parse_args()
@@ -248,8 +299,14 @@ def main():
     print("🚀 Obsidian to Jekyll Converter")
     print("=" * 40)
 
+    # Resolve Obsidian vault path
+    obsidian_root = find_obsidian_root(args.obsidian_path)
+    print(f"📁 Using Obsidian vault: {obsidian_root}")
+
     # Get Obsidian files
-    obsidian_files = get_obsidian_files(args.target_dir, args.skip_converted)
+    obsidian_files = get_obsidian_files(
+        obsidian_root, args.target_dir, args.skip_converted
+    )
 
     # Generate dates
     dates = generate_dates(len(obsidian_files), args.mode)
@@ -261,16 +318,20 @@ def main():
         clean_title = extract_clean_title(filename)
         safe_title = sanitize_title(clean_title)
         jekyll_name = f"{date}-{safe_title}.md"
-        print(f"   {i+1}. {filename} → {jekyll_name}")
-        print(f"      Title: \"{clean_title}\"")
+        print(f"   {i + 1}. {filename} → {jekyll_name}")
+        print(f'      Title: "{clean_title}"')
 
     if args.dry_run:
-        print(f"\n🔍 Dry run complete. Use without --dry-run to actually convert files.")
+        print(
+            f"\n🔍 Dry run complete. Use without --dry-run to actually convert files."
+        )
         return
 
     # Confirm conversion
-    response = input(f"\n❓ Convert {len(obsidian_files)} files to {args.target_dir}? [y/N]: ")
-    if response.lower() not in ['y', 'yes']:
+    response = input(
+        f"\n❓ Convert {len(obsidian_files)} files to {args.target_dir}? [y/N]: "
+    )
+    if response.lower() not in ["y", "yes"]:
         print("❌ Conversion cancelled.")
         return
 
@@ -287,6 +348,7 @@ def main():
 
     if successful < len(obsidian_files):
         print(f"   ⚠️  {len(obsidian_files) - successful} files had errors")
+
 
 if __name__ == "__main__":
     main()

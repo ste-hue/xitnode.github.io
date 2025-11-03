@@ -6,6 +6,9 @@ gem "jekyll", "~> 4.3.0"
 # Theme
 gem "minima", "~> 2.5"
 
+# Sass compiler (replaces sass-embedded to avoid protobuf issues)
+gem "sassc", "~> 2.4"
+
 # Plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"

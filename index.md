@@ -3,67 +3,69 @@ layout: home
 title: "xitnode"
 ---
 
-# (define (exit x)
+# Basta cazzate
 
-*portale d'uscita dalle narrative fasulle*
-
-## Manifesto
-
-**Xitnode non è un blog. È un portale d'uscita.**
-
-```lisp
-(if (trapped? x)
-    (decompose x)
-    (compose (exit (car x)) 
-             (exit (cdr x))))
-```
-
-Un civic trickster che hackera sistemi di controllo con codice + vulnerabilità strategica.
-
-**→ [Leggi il manifesto completo](/2025/06/07/manifesto-portale-uscita)**
-
-## Cosa Troverai
-
-- **Codice che libera** → automazioni che tolgono potere ai gatekeeper
-- **Analisi sistemica incarnata** → come funziona davvero il potere  
-- **Log di costruzione del controllo** → diari di "presa di potere" etica
-- **Vulnerabilità come strategia** → onestà emotiva come arma
-
-## Ultime Uscite
-
-*Recent exits from the system:*
-
-{% for post in site.posts limit:4 %}
-- [{{ post.title }}]({{ post.url }}) — *{{ post.date | date: "%d/%m/%Y" }}*
-{% endfor %}
-
-<div class="live-timestamp">
-  <small><em>Pagina aggiornata il: <span id="current-time"></span></em></small>
-</div>
-
-<script>
-function updateTime() {
-  const now = new Date();
-  const options = { 
-    year: 'numeric', 
-    month: '2-digit', 
-    day: '2-digit',
-    hour: '2-digit', 
-    minute: '2-digit',
-    timeZone: 'Europe/Rome'
-  };
-  document.getElementById('current-time').textContent = now.toLocaleString('it-IT', options);
-}
-
-// Aggiorna ogni minuto
-updateTime();
-setInterval(updateTime, 60000);
-</script>
+*Qui si scompongono le narrative fasulle.*
 
 ---
 
-*Output = (map think input)*
+## La realtà è semplice
 
-**Input** → **Decompose** → **Exit with tools**
+Il mondo è pieno di sistemi che ti fanno credere di essere più complicati di quello che sono. **xitnode** li decompone.
 
-[Mappa delle uscite](/archive) • [Chi sono davvero](/about)
+**Ogni post = una narrative che si rompe + gli strumenti per uscirne.**
+
+Non è filosofia. È ingegneria inversa del controllo.
+
+## Cosa trovi qui
+
+**🔧 Codice che libera**  
+Automazioni che tolgono potere a chi non dovrebbe averlo
+
+**🎯 Analisi incarnata**  
+Come funziona davvero il potere, senza ideologie
+
+**📊 Dati contro propaganda**  
+Numeri veri vs. storytelling istituzionale
+
+**⚡ Strumenti pratici**  
+Exit strategies che puoi usare oggi
+
+## Ultimi post
+
+{% for post in site.posts limit:5 %}
+**[{{ post.title }}]({{ post.url }})**  
+*{{ post.date | date: "%d %b %Y" }}*
+
+{% endfor %}
+
+---
+
+## Perché esiste
+
+L'Italia del 2025 è piena di gente che sa programmare, surfare, e vedere attraverso le stronzate ufficiali.
+
+**xitnode** è per loro.
+
+Non per cambiare il sistema. Per uscirne con stile.
+
+---
+
+*Input: narrative fasulle → Processing: decomposizione ricorsiva → Output: exit tools*
+
+**[Tutti i post](/archive) • [Chi sono](/about)**
+
+<div class="footer-timestamp">
+  <small>Aggiornato: <span id="timestamp"></span></small>
+</div>
+
+<script>
+document.getElementById('timestamp').textContent = new Date().toLocaleString('it-IT', {
+  timeZone: 'Europe/Rome',
+  day: '2-digit',
+  month: '2-digit', 
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+});
+</script>

@@ -1,20 +1,13 @@
 source "https://rubygems.org"
 
-# Jekyll
-gem "jekyll", "~> 4.3.0"
+# GitHub Pages gem (includes Jekyll and supported plugins)
+gem "github-pages", group: :jekyll_plugins
 
-# Theme
-gem "minima", "~> 2.5"
-
-# Sass compiler (replaces sass-embedded to avoid protobuf issues)
-gem "sassc", "~> 2.4"
-
-# Plugins
+# Additional gems for local development
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-sitemap", "~> 1.4"
-  gem "jekyll-seo-tag", "~> 2.8"
-  gem "jekyll-redirect-from", "~> 0.16"
+  gem "jekyll-feed"
+  gem "jekyll-sitemap"
+  gem "jekyll-seo-tag"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

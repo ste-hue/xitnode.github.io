@@ -1,11 +1,12 @@
 title: "xitnode"
 description: "recursive clarity in digital space"
 baseurl: ""
-url: "https://xitnode.com"
+url: "https://ste-hue.github.io/xitnode.github.io"
 markdown: kramdown
+highlighter: rouge
 theme: minima
 
-# Configurazioni aggiuntive
+# Site settings
 author: "xitnode"
 email: ""
 tagline: "(define (think x) ...)"
@@ -13,17 +14,32 @@ tagline: "(define (think x) ...)"
 # Build settings
 plugins:
   - jekyll-feed
-  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# GitHub Pages safe settings
+safe: true
+source: .
+destination: ./_site
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+
+# Timezone
+timezone: Europe/Rome
 
 # Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - convert_obsidian.py
+  - sync-obsidian.sh
+  - vendor/
 
-# Pagination
-paginate: 5
-paginate_path: "/page:num/"
-
-# Timezone
-timezone: Europe/Rome
+# Kramdown settings
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: "xitnode"
 ---
 
@@ -33,11 +33,17 @@ Exit strategies che puoi usare oggi
 
 ## Ultimi post
 
+<div class="posts-list">
 {% for post in site.posts limit:5 %}
-**[{{ post.title }}]({{ post.url }})**  
-*{{ post.date | date: "%d %b %Y" }}*
-
+<div class="post-item">
+  <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  <small>{{ post.date | date: "%d %b %Y" }}</small>
+  {% if post.excerpt %}
+  <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+  {% endif %}
+</div>
 {% endfor %}
+</div>
 
 ---
 
@@ -60,12 +66,19 @@ Non per cambiare il sistema. Per uscirne con stile.
 </div>
 
 <script>
-document.getElementById('timestamp').textContent = new Date().toLocaleString('it-IT', {
-  timeZone: 'Europe/Rome',
-  day: '2-digit',
-  month: '2-digit', 
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit'
-});
+(function() {
+  var timestamp = document.getElementById('timestamp');
+  if (timestamp) {
+    var now = new Date();
+    var options = {
+      timeZone: 'Europe/Rome',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    };
+    timestamp.textContent = now.toLocaleString('it-IT', options);
+  }
+})();
 </script>

@@ -1,7 +1,7 @@
 title: "xitnode"
 description: "recursive clarity in digital space"
 baseurl: ""
-url: "https://ste-hue.github.io/xitnode.github.io"
+url: "https://xitnode.com"
 markdown: kramdown
 highlighter: rouge
 theme: minima

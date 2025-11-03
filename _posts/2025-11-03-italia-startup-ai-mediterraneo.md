@@ -1,8 +1,13 @@
 
 ---
+layout: post
+title: "Italia, Startup, AI e Mediterraneo"
+date: 2025-11-03
+categories: [xitnode]
+tags: [xitnode, italia, tech, ai, mediterraneo]
+---
 
-
-## **1. L’Italia del 2025 non è solo moda e spritz  è startup, AI e coscienza espansa**
+## **1. L'Italia del 2025 non è solo moda e spritz  è startup, AI e coscienza espansa**
 
   
 

@@ -1,8 +1,13 @@
 
-
+---
+layout: post
+title: "Fake Scarcity Lifecycle"
+date: 2025-11-02
+categories: [xitnode]
+tags: [xitnode, tech, economics, scarcity]
 ---
 
-Fake Scarcity Lifecycle
+# Fake Scarcity Lifecycle
 
 _(How industries react when technology makes something abundant)_
 

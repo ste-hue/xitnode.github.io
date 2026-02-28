@@ -52,7 +52,9 @@ function parsePost(filename) {
   const yearMatch = filename.match(/^(\d{4})/);
   const monthMatch = filename.match(/^\d{4}-(\d{2})/);
   const dayMatch = filename.match(/^\d{4}-\d{2}-(\d{2})/);
-  const postUrl = `${SITE_URL}/${yearMatch[1]}/${monthMatch[1]}/${dayMatch[1]}/${slugPart}`;
+  const categories = Array.isArray(data.categories) ? data.categories : [];
+  const categoryPath = categories.length > 0 ? categories.join("/") + "/" : "";
+  const postUrl = `${SITE_URL}/${categoryPath}${yearMatch[1]}/${monthMatch[1]}/${dayMatch[1]}/${slugPart}`;
 
   const htmlContent = marked(content);
 

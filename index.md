@@ -9,27 +9,11 @@ title: "xitnode"
 
 ---
 
-## La realtà è semplice
+C'era un tempo in cui sapevi distinguere. Prima che costruissero sistemi così eleganti da farti dubitare di quello che vedevi con i tuoi occhi.
 
-Il mondo è pieno di sistemi che ti fanno credere di essere più complicati di quello che sono. **xitnode** li decompone.
+**xitnode** non ti spiega niente. Ti ricorda quello che già sai.
 
-**Ogni post = una narrative che si rompe + gli strumenti per uscirne.**
-
-Non è filosofia. È ingegneria inversa del controllo.
-
-## Cosa trovi qui
-
-**🔧 Codice che libera**  
-Automazioni che tolgono potere a chi non dovrebbe averlo
-
-**🎯 Analisi incarnata**  
-Come funziona davvero il potere, senza ideologie
-
-**📊 Dati contro propaganda**  
-Numeri veri vs. storytelling istituzionale
-
-**⚡ Strumenti pratici**  
-Exit strategies che puoi usare oggi
+Ogni post è uno strato che si stacca. Sotto, sempre la stessa cosa: un meccanismo che funziona solo finché non lo guardi.
 
 ## Ultimi post
 
@@ -47,19 +31,13 @@ Exit strategies che puoi usare oggi
 
 ---
 
-## Perché esiste
+Non è filosofia. Non è attivismo. È un faro acceso nel buio — non per illuminare tutto, ma per vedere chi risponde.
 
-L'Italia del 2025 è piena di gente che sa programmare, surfare, e vedere attraverso le stronzate ufficiali.
-
-**xitnode** è per loro.
-
-Non per cambiare il sistema. Per uscirne con stile.
+Se sei arrivato qui, forse stavi già cercando. Forse sapevi già che qualcosa non tornava. Questo posto esiste per quella frequenza.
 
 ---
 
-*Input: narrative fasulle → Processing: decomposizione ricorsiva → Output: exit tools*
-
-**[Tutti i post](/archive) • [Chi sono](/about)**
+**[Tutti i post](/archive) · [Chi sono](/about)**
 
 <div class="footer-timestamp">
   <small>Aggiornato: <span id="timestamp"></span></small>

@@ -3,6 +3,11 @@ source "https://rubygems.org"
 # GitHub Pages gem (includes Jekyll and supported plugins)
 gem "github-pages", group: :jekyll_plugins
 
+# Required for Ruby 3.4+
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+
 # Additional gems for local development
 group :jekyll_plugins do
   gem "jekyll-feed"

@@ -37,6 +37,8 @@ exclude:
   - convert_obsidian.py
   - sync-obsidian.sh
   - vendor/
+  - newsletter/
+  - worker/
 
 # Kramdown settings
 kramdown:

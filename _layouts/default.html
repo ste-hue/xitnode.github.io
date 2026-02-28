@@ -172,13 +172,99 @@
       margin-top: 1em;
     }
 
+    .newsletter-form {
+      margin: 2em 0;
+      padding: 1.5em;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .newsletter-form h3 {
+      margin: 0 0 0.5em;
+      font-size: 1.1em;
+      color: var(--primary-color);
+    }
+
+    .newsletter-form p {
+      margin: 0 0 1em;
+      font-size: 0.85em;
+      color: var(--secondary-color);
+    }
+
+    .newsletter-fields {
+      display: flex;
+      gap: 0.5em;
+      justify-content: center;
+    }
+
+    .newsletter-fields input[type="email"] {
+      flex: 1;
+      max-width: 280px;
+      padding: 0.5em 0.75em;
+      border: 1px solid var(--border-color);
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: inherit;
+      color: var(--primary-color);
+      background: var(--background-color);
+    }
+
+    .newsletter-fields input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+
+    .newsletter-fields button {
+      padding: 0.5em 1.2em;
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .newsletter-fields button:hover {
+      opacity: 0.9;
+    }
+
+    .newsletter-fields button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .newsletter-msg {
+      margin-top: 0.75em;
+      font-size: 0.85em;
+      min-height: 1.3em;
+    }
+
+    .newsletter-msg.success { color: #2e7d32; }
+    .newsletter-msg.error { color: #c62828; }
+
     @media (max-width: 600px) {
       .container {
         padding: 1em 0.5em;
       }
-      
+
       .site-title {
         font-size: 2em;
+      }
+
+      .newsletter-fields {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .newsletter-fields input[type="email"] {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .newsletter-fields button {
+        width: 100%;
       }
     }
   </style>
@@ -200,6 +286,18 @@
     </main>
 
     <footer class="site-footer">
+      <div class="newsletter-form">
+        <h3>Newsletter</h3>
+        <p>Ricevi i nuovi articoli direttamente nella tua inbox.</p>
+        <form id="subscribe-form" onsubmit="return handleSubscribe(event)">
+          <div class="newsletter-fields">
+            <input type="email" id="subscribe-email" placeholder="La tua email" required>
+            <button type="submit" id="subscribe-btn">Iscriviti</button>
+          </div>
+        </form>
+        <div id="subscribe-msg" class="newsletter-msg"></div>
+      </div>
+
       <div class="last-updated">
         <small>Sito aggiornato il: <span id="site-timestamp"></span></small>
       </div>
@@ -227,9 +325,51 @@
 
     // Inizializza timestamp
     updateSiteTimestamp();
-    
+
     // Aggiorna ogni 2 minuti
     setInterval(updateSiteTimestamp, 120000);
+
+    // Newsletter subscribe
+    const SUBSCRIBE_URL = 'https://xitnode-newsletter-subscribe.YOUR_SUBDOMAIN.workers.dev';
+
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('subscribe-email').value.trim();
+      const btn = document.getElementById('subscribe-btn');
+      const msg = document.getElementById('subscribe-msg');
+
+      btn.disabled = true;
+      btn.textContent = '...';
+      msg.textContent = '';
+      msg.className = 'newsletter-msg';
+
+      fetch(SUBSCRIBE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.error) {
+          msg.textContent = data.error;
+          msg.className = 'newsletter-msg error';
+        } else {
+          msg.textContent = data.message || 'Iscrizione completata!';
+          msg.className = 'newsletter-msg success';
+          document.getElementById('subscribe-email').value = '';
+        }
+      })
+      .catch(function() {
+        msg.textContent = 'Errore di rete. Riprova.';
+        msg.className = 'newsletter-msg error';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = 'Iscriviti';
+      });
+
+      return false;
+    }
   </script>
 </body>
 </html>

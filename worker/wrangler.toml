@@ -1,0 +1,13 @@
+name = "xitnode-newsletter-subscribe"
+main = "subscribe.js"
+compatibility_date = "2024-01-01"
+
+# Deploy with: wrangler deploy
+# Set secrets with:
+#   wrangler secret put RESEND_API_KEY
+#   wrangler secret put RESEND_AUDIENCE_ID
+
+# Optional: custom domain (configure in Cloudflare dashboard)
+# routes = [
+#   { pattern = "newsletter.xitnode.com/*", zone_name = "xitnode.com" }
+# ]

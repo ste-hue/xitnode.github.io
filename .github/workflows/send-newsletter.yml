@@ -1,0 +1,50 @@
+name: Send Newsletter
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_slug:
+        description: "Post slug to send (leave empty for latest)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run (render only, no send)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+  # Uncomment below for weekly automated sends (every Monday at 9:00 CET)
+  # schedule:
+  #   - cron: "0 8 * * 1"
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        working-directory: newsletter
+        run: npm install
+
+      - name: Send newsletter
+        working-directory: newsletter
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.post_slug }}" ]; then
+            ARGS="$ARGS --slug ${{ github.event.inputs.post_slug }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          node send.js $ARGS

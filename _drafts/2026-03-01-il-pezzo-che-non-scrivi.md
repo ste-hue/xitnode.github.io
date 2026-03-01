@@ -11,19 +11,19 @@ tags:
   - ai
 ---
 
-Ogni settimana pensi cose che valgono un articolo.
+Ogni settimana pensi cose che meritano un articolo.
 
 Nessuna diventa un articolo.
 
-Non perche' ti manchi il talento. Non perche' ti manchi il tempo.
+Non perché ti manchi il talento. Non perché ti manchi il tempo.
 
-Il pensiero, per natura, e' **entropico**. Si disperde. Un'intuizione nella chat delle 9. Una reazione a un articolo alle 11. Un rant vocale alle 23 dopo una giornata che non quadrava.
+Il pensiero, per natura, è un processo materiale **entropico**. Si disperde. Un'intuizione nella chat delle 9. Una reazione a un articolo alle 11. Un rant vocale alle 23 dopo una giornata che non quadrava.
 
 Ogni frammento ha energia. Nessuno ha forma.
 
 ---
 
-L'industria del content non te lo dice perche' non puo' venderti la soluzione: **scrivere e' il passo facile**. La parte impossibile e' la compressione,  prendere pensiero sparso e ridurlo a struttura.
+L'industria del content non te lo dice perché non può venderti la soluzione: scrivere è il passo facile. La parte impossibile è la compressione,  prendere pensiero sparso e ridurlo a struttura.
 
 I corsi di scrittura vendono tecniche. Il problema non e' tecnico. E' infrastrutturale.
 
@@ -66,7 +66,7 @@ Non perché non sappia comprimere. Ma perché la compressione richiede un interl
 
 La domanda giusta non è: "Di cosa vuoi parlare?"
 
-La domanda giusta è: "Quel fastidio che hai sentito stamattina  era per il risultato, o per il fatto che il processo lo rendeva inevitabile?"
+La domanda giusta è tipo: "Avevi accettato il processo solo finché sembrava reversibile?"
 
 ---
 

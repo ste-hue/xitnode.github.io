@@ -1,3 +1,4 @@
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
@@ -80,7 +81,7 @@ function parsePost(filename) {
   const dayMatch = filename.match(/^\d{4}-\d{2}-(\d{2})/);
   const categories = Array.isArray(data.categories) ? data.categories : [];
   const categoryPath = categories.length > 0 ? categories.join("/") + "/" : "";
-  const postUrl = `${SITE_URL}/${categoryPath}${yearMatch[1]}/${monthMatch[1]}/${dayMatch[1]}/${slugPart}`;
+  const postUrl = `${SITE_URL}/${categoryPath}${yearMatch[1]}/${monthMatch[1]}/${dayMatch[1]}/${slugPart}.html`;
 
   const htmlContent = marked(content);
 
@@ -103,7 +104,7 @@ function renderEmail(post) {
   return template;
 }
 
-async function sendNewsletter(html, post, dryRun) {
+async function sendNewsletter(html, post, { dryRun, testEmail }) {
   if (dryRun) {
     console.log("--- DRY RUN ---");
     console.log(`Subject: ${post.title}`);
@@ -114,14 +115,37 @@ async function sendNewsletter(html, post, dryRun) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
 
-  if (!apiKey || !audienceId) {
-    console.error("Missing RESEND_API_KEY or RESEND_AUDIENCE_ID environment variables.");
+  if (!apiKey) {
+    console.error("Missing RESEND_API_KEY environment variable.");
     process.exit(1);
   }
 
   const resend = new Resend(apiKey);
+
+  if (testEmail) {
+    const result = await resend.emails.send({
+      from: "xitnode <newsletter@xitnode.com>",
+      to: testEmail,
+      subject: `[TEST] ${post.title}`,
+      html,
+    });
+
+    if (result.error) {
+      console.error("Failed to send test email:", result.error);
+      process.exit(1);
+    }
+
+    console.log(`Test email sent to ${testEmail}: "${post.title}"`);
+    return;
+  }
+
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+
+  if (!audienceId) {
+    console.error("Missing RESEND_AUDIENCE_ID environment variable.");
+    process.exit(1);
+  }
 
   const broadcast = await resend.broadcasts.create({
     audienceId,
@@ -152,6 +176,8 @@ async function main() {
   const dryRun = args.includes("--dry-run");
   const sinceLast = args.includes("--since-last");
   const shouldUpdateTracker = args.includes("--update-tracker");
+  const testFlag = args.indexOf("--test");
+  const testEmail = testFlag !== -1 ? args[testFlag + 1] : null;
   const slugFlag = args.indexOf("--slug");
   const slug = slugFlag !== -1 ? args[slugFlag + 1] : null;
 
@@ -172,7 +198,7 @@ async function main() {
   const post = parsePost(filename);
   const html = renderEmail(post);
 
-  await sendNewsletter(html, post, dryRun);
+  await sendNewsletter(html, post, { dryRun, testEmail });
 
   if (shouldUpdateTracker && !dryRun) {
     updateTracker();

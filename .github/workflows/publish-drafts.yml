@@ -5,6 +5,9 @@ on:
     - cron: "0 6 * * *"  # Daily at 7:00 CET (6:00 UTC)
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -19,15 +22,15 @@ jobs:
           for draft in _drafts/*.md; do
             [ -f "$draft" ] || continue
 
-            # Extract date from frontmatter
-            DATE=$(sed -n '/^---$/,/^---$/{ s/^date: *//p }' "$draft" | tr -d ' "'"'"'')
+            # Extract date from frontmatter (handles both "date: 2026-03-01" and "date: \"2026-03-01\"")
+            DATE=$(sed -n '/^---$/,/^---$/{ s/^date: *//p }' "$draft" | tr -d ' "'"'"'' | head -1)
 
             if [ -z "$DATE" ]; then
               echo "⏭ No date in $draft, skipping"
               continue
             fi
 
-            if [ "$DATE" \<= "$TODAY" ]; then
+            if [[ "$DATE" < "$TODAY" || "$DATE" == "$TODAY" ]]; then
               FILENAME=$(basename "$draft")
               # If filename doesn't start with date, prepend it
               if ! echo "$FILENAME" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}-'; then

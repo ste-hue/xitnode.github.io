@@ -95,11 +95,18 @@ function parsePost(filename) {
   };
 }
 
+function stripSvgForEmail(html, postUrl) {
+  return html.replace(/<figure>\s*<svg[\s\S]*?<\/svg>\s*<\/figure>/gi,
+    `<p style="padding:16px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;text-align:center;color:#666;font-size:14px;">[Diagramma — <a href="${postUrl}" style="color:#007acc;">vedi sul sito</a>]</p>`
+  );
+}
+
 function renderEmail(post) {
   let template = fs.readFileSync(TEMPLATE_PATH, "utf-8");
+  const content = stripSvgForEmail(post.content, post.postUrl);
   template = template.replace(/\{\{TITLE\}\}/g, post.title);
   template = template.replace(/\{\{DATE\}\}/g, post.date);
-  template = template.replace(/\{\{CONTENT\}\}/g, post.content);
+  template = template.replace(/\{\{CONTENT\}\}/g, content);
   template = template.replace(/\{\{POST_URL\}\}/g, post.postUrl);
   template = template.replace(/\{\{YEAR\}\}/g, post.year);
   return template;

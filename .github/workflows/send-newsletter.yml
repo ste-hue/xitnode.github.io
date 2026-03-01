@@ -16,9 +16,8 @@ on:
           - "false"
           - "true"
 
-  # Uncomment below for weekly automated sends (every Monday at 9:00 CET)
-  # schedule:
-  #   - cron: "0 8 * * 1"
+  schedule:
+    - cron: "0 8 * * 1"  # Monday 9:00 CET (8:00 UTC)
 
 jobs:
   send:
@@ -40,11 +39,24 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
         run: |
-          ARGS=""
-          if [ -n "${{ github.event.inputs.post_slug }}" ]; then
-            ARGS="$ARGS --slug ${{ github.event.inputs.post_slug }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            node send.js --since-last --update-tracker
+          else
+            ARGS=""
+            if [ -n "${{ github.event.inputs.post_slug }}" ]; then
+              ARGS="$ARGS --slug ${{ github.event.inputs.post_slug }}"
+            fi
+            if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+              ARGS="$ARGS --dry-run"
+            fi
+            node send.js $ARGS
           fi
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            ARGS="$ARGS --dry-run"
-          fi
-          node send.js $ARGS
+
+      - name: Commit tracker update
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add newsletter/last-sent.json
+          git diff --staged --quiet || git commit -m "Update newsletter last-sent tracker"
+          git push

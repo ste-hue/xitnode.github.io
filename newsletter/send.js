@@ -6,6 +6,7 @@ const { Resend } = require("resend");
 
 const POSTS_DIR = path.join(__dirname, "..", "_posts");
 const TEMPLATE_PATH = path.join(__dirname, "email-template.html");
+const TRACKER_PATH = path.join(__dirname, "last-sent.json");
 const SITE_URL = "https://xitnode.com";
 
 function getPostFiles() {
@@ -13,6 +14,31 @@ function getPostFiles() {
     .readdirSync(POSTS_DIR)
     .filter((f) => f.endsWith(".md"))
     .sort();
+}
+
+function getPostDate(filename) {
+  const match = filename.match(/^(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : null;
+}
+
+function getPostsSince(sinceDate) {
+  return getPostFiles().filter((f) => {
+    const date = getPostDate(f);
+    return date && date > sinceDate;
+  });
+}
+
+function readTracker() {
+  if (!fs.existsSync(TRACKER_PATH)) {
+    return { lastSentDate: "1970-01-01" };
+  }
+  return JSON.parse(fs.readFileSync(TRACKER_PATH, "utf-8"));
+}
+
+function updateTracker() {
+  const today = new Date().toISOString().split("T")[0];
+  fs.writeFileSync(TRACKER_PATH, JSON.stringify({ lastSentDate: today }, null, 2) + "\n");
+  console.log(`Tracker updated: lastSentDate = ${today}`);
 }
 
 function findPost(slug) {
@@ -124,8 +150,21 @@ async function sendNewsletter(html, post, dryRun) {
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
+  const sinceLast = args.includes("--since-last");
+  const shouldUpdateTracker = args.includes("--update-tracker");
   const slugFlag = args.indexOf("--slug");
   const slug = slugFlag !== -1 ? args[slugFlag + 1] : null;
+
+  if (sinceLast) {
+    const tracker = readTracker();
+    const newPosts = getPostsSince(tracker.lastSentDate);
+    if (newPosts.length === 0) {
+      console.log(`No new posts since ${tracker.lastSentDate}. Nothing to send.`);
+      return;
+    }
+    console.log(`Found ${newPosts.length} new post(s) since ${tracker.lastSentDate}:`);
+    newPosts.forEach((f) => console.log(`  - ${f}`));
+  }
 
   const filename = findPost(slug);
   console.log(`Processing: ${filename}`);
@@ -134,6 +173,10 @@ async function main() {
   const html = renderEmail(post);
 
   await sendNewsletter(html, post, dryRun);
+
+  if (shouldUpdateTracker && !dryRun) {
+    updateTracker();
+  }
 }
 
 main().catch((err) => {

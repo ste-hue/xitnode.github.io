@@ -1,0 +1,55 @@
+name: Publish Scheduled Drafts
+
+on:
+  schedule:
+    - cron: "0 6 * * *"  # Daily at 7:00 CET (6:00 UTC)
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish drafts with date <= today
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          PUBLISHED=0
+
+          for draft in _drafts/*.md; do
+            [ -f "$draft" ] || continue
+
+            # Extract date from frontmatter
+            DATE=$(sed -n '/^---$/,/^---$/{ s/^date: *//p }' "$draft" | tr -d ' "'"'"'')
+
+            if [ -z "$DATE" ]; then
+              echo "⏭ No date in $draft, skipping"
+              continue
+            fi
+
+            if [ "$DATE" \<= "$TODAY" ]; then
+              FILENAME=$(basename "$draft")
+              # If filename doesn't start with date, prepend it
+              if ! echo "$FILENAME" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}-'; then
+                FILENAME="${DATE}-${FILENAME}"
+              fi
+              echo "📝 Publishing: $FILENAME (date: $DATE)"
+              mv "$draft" "_posts/$FILENAME"
+              PUBLISHED=$((PUBLISHED + 1))
+            else
+              echo "⏳ Not yet: $(basename $draft) (scheduled: $DATE)"
+            fi
+          done
+
+          echo "published=$PUBLISHED" >> $GITHUB_OUTPUT
+          echo "✅ Published $PUBLISHED drafts"
+        id: publish
+
+      - name: Commit and push
+        if: steps.publish.outputs.published != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _posts/ _drafts/
+          git commit -m "Publish scheduled drafts"
+          git push

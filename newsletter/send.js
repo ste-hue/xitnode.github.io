@@ -36,10 +36,11 @@ function readTracker() {
   return JSON.parse(fs.readFileSync(TRACKER_PATH, "utf-8"));
 }
 
-function updateTracker() {
+function updateTracker(filename) {
   const today = new Date().toISOString().split("T")[0];
-  fs.writeFileSync(TRACKER_PATH, JSON.stringify({ lastSentDate: today }, null, 2) + "\n");
-  console.log(`Tracker updated: lastSentDate = ${today}`);
+  const data = { lastSentDate: today, lastSentFile: filename };
+  fs.writeFileSync(TRACKER_PATH, JSON.stringify(data, null, 2) + "\n");
+  console.log(`Tracker updated: lastSentDate = ${today}, lastSentFile = ${filename}`);
 }
 
 function findPost(slug) {
@@ -181,8 +182,9 @@ async function main() {
   const slugFlag = args.indexOf("--slug");
   const slug = slugFlag !== -1 ? args[slugFlag + 1] : null;
 
+  const tracker = sinceLast ? readTracker() : null;
+
   if (sinceLast) {
-    const tracker = readTracker();
     const newPosts = getPostsSince(tracker.lastSentDate);
     if (newPosts.length === 0) {
       console.log(`No new posts since ${tracker.lastSentDate}. Nothing to send.`);
@@ -193,6 +195,12 @@ async function main() {
   }
 
   const filename = findPost(slug);
+
+  if (sinceLast && tracker.lastSentFile === filename) {
+    console.log(`Post already sent: ${filename}. Skipping.`);
+    return;
+  }
+
   console.log(`Processing: ${filename}`);
 
   const post = parsePost(filename);
@@ -201,7 +209,7 @@ async function main() {
   await sendNewsletter(html, post, { dryRun, testEmail });
 
   if (shouldUpdateTracker && !dryRun) {
-    updateTracker();
+    updateTracker(filename);
   }
 }
 

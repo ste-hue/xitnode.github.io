@@ -46,78 +46,92 @@ Serve:
 Non serve il panino, il magazzino, il cliente.
 
 
-Tre azioni sullo stesso dominio. Tre proiezioni diverse della stessa ontologia. L'azione determina il confine.
+Tre azioni sullo stesso dominio. Tre proiezioni diverse della stessa ontologia.
 
-Non sono tre ontologie separate. Se lo fossero, non potresti collegare consumo con fornitore, vendite con ordini, o fare analisi cross-vertical. Il sistema è un'ontologia core condivisa, con proiezioni per azione.
+L'azione determina il confine.
 
-Questa distinzione non è semantica. Cambia l'architettura.
+## La regola
 
-## L'errore comune
+**Se aggiungere un'informazione non cambia una decisione, è rumore.**
 
-Modellare per entità (fornitore, prodotto, cliente), per processi (acquisto, vendita, magazzino), per reparti (economato, vendita, amministrazione).
+La maggior parte dei sistemi raccoglie dati. Pochissimi migliorano decisioni.
 
-Il problema: le azioni non emergono da questa decomposizione. Hai struttura senza decisione. Aggiungi entità perché "potrebbero servire". Risultato: sprawl ontologico senza leva.
+La differenza è una domanda:
 
-Quello che stai facendo, senza saperlo, è modellare per entità o per processo. La terza opzione — modellare per decisione — è quella che manca quasi sempre nei sistemi informativi classici.
+*Quale azione cambia questa informazione?*
 
-Decision-driven modelling: l'ontologia esiste per supportare decisioni specifiche, non per rappresentare la realtà.
+Se nessuna, il sistema sta crescendo ma non sta pensando.
 
-## Regola di stop
+## La dashboard che non decide
 
-**"Quale azione migliora se aggiungo questa entità/evento/proprietà?"**
+Un'azienda traccia centinaia di metriche. Revenue, churn, conversion rate, NPS, cohort analysis.
 
-Se la risposta è "nessuna azione specifica, ma è più completo" → non aggiungerla.
+Il fatturato cala.
 
-## Agenti specializzati per vertical
+La decisione viene presa da tre persone in una stanza, con le stesse informazioni che avevano prima della dashboard.
 
-Un agente unico su tutto il dominio ha lo stesso problema dell'ontologia unica: deve context-switchare tra azioni incoerenti. L'ontologia esplode perché deve supportare tutte le azioni alla massima granularità.
+La dashboard non ha cambiato la decisione. Ha solo fatto sembrare il sistema analitico.
 
-Alternativa: un agente per vertical. Ogni vertical = un cluster di azioni coerenti.
+Questo succede ovunque: ERP, data warehouse, AI analytics, agenti. Sistemi che accumulano informazione senza migliorare azioni.
+
+## L'errore
+
+Modellare per entità (fornitore, prodotto, cliente). Per processi (acquisto, vendita, magazzino). Per reparti (economato, vendita, amministrazione).
+
+Il problema: le decisioni non emergono da questa decomposizione. Hai struttura senza azione. Aggiungi entità perché "potrebbero servire".
+
+Risultato: sistemi che descrivono la realtà in dettaglio crescente, senza cambiare nessuna decisione.
+
+## Agenti per decisione
+
+Un agente unico su tutto il dominio ha lo stesso problema: deve context-switchare tra azioni incoerenti. L'ontologia esplode perché deve supportare tutte le decisioni alla massima granularità.
+
+Un agente per vertical. Ogni vertical = un cluster di decisioni coerenti.
 
 **Agente Acquisti:**
 - Fornitore completo, Ordine completo
-- Azioni: "questo fornitore è affidabile?", "quando ordinare?"
+- Decisioni: "questo fornitore è affidabile?", "quando ordinare?"
 
 **Agente Vendite:**
 - Prodotto (solo: disponibile sì/no, quantità)
-- Azioni: "posso vendere oggi?", "consumo anomalo?"
+- Decisioni: "posso vendere oggi?", "consumo anomalo?"
 
 **Agente Finance:**
 - Ledger, Banca, Budget. Niente Prodotto.
-- Azioni: "riconcilia movimenti banca vs ledger", "varianza budget vs actual"
+- Decisioni: "riconcilia movimenti banca vs ledger", "varianza budget vs actual"
 
-L'agente acquisti non sa quanto vendi oggi. L'agente vendite non sa chi è il fornitore. Ognuno porta la proiezione sufficiente per le sue azioni.
+L'agente acquisti non sa quanto vendi oggi. L'agente vendite non sa chi è il fornitore. Ognuno porta la proiezione sufficiente per le sue decisioni.
 
-Alcune azioni attraversano vertical: riconciliazione banca, controllo margini, forecasting cashflow. Richiedono vendite, acquisti e finanza insieme. Quindi esistono agenti cross-vertical. Non è un errore. È fisiologico.
+Alcune decisioni attraversano vertical. Riconciliazione banca, controllo margini, forecasting cashflow. Agenti cross-vertical. Non è un errore. È fisiologico.
 
-## Ontologia condivisa, layer semantico
-
-Layer condiviso: Fornitore, Prodotto, Ordine, Cliente.
-
-Ogni agente accede alla proiezione che serve alle sue azioni. Ma il layer condiviso non è memoria passiva. È un layer semantico: definisce vincoli, relazioni, regole di consistenza. L'intelligenza è distribuita — vive sia nel layer condiviso che negli agenti.
-
-Se l'intelligenza vivesse solo negli agenti, le regole sarebbero duplicate, le definizioni divergerebbero, il sistema perderebbe coerenza.
+Ontologia core condivisa — un layer semantico che definisce vincoli e consistenza. Ogni agente accede alla proiezione che serve. L'intelligenza è distribuita: vive nel layer condiviso e negli agenti.
 
 ## Stesso debito, layer diverso
 
-La regola di stop vale anche per gli agenti.
+La regola vale anche per gli agenti.
 
-"Quale azione migliora se aggiungo questo agente/workflow/automazione?"
+*Quale decisione migliora se aggiungo questo agente?*
 
-Esempio: un agente che elimina trascrizione manuale di documenti. Azione specifica, friction rimosso.
+Un agente che elimina trascrizione manuale di documenti. Decisione specifica, friction rimosso.
 
-Poi la tentazione: aggiungere previsioni, sentiment analysis, dashboard analytics, auto-ordering. Ognuno di questi sposta il friction point: non stai più risolvendo il problema originale, stai mantenendo il sistema che lo risolve.
+Poi la tentazione: previsioni, sentiment analysis, dashboard analytics, auto-ordering. Ognuno sposta il friction point. Non stai più risolvendo il problema originale. Stai mantenendo il sistema che lo risolve.
 
-Logging, retry, idempotenza: quelli servono sempre. Sono baseline, non prevenzione. Non costruire sistemi complessi per failure che non hai osservato.
+Logging, retry, idempotenza: baseline. Non costruire sistemi complessi per failure che non hai osservato.
 
-## Formula
+---
 
-```
-Perché (problema)
-  → Decisioni (da migliorare)
-  → Verticals (cluster di decisioni coerenti)
-  → Agenti specializzati (+ cross-vertical dove serve)
-  → Ontologia condivisa, proiezioni per agente
-```
+La maggior parte dei sistemi parte dalle entità.
 
-Non il contrario.
+Prodotto. Cliente. Fornitore.
+
+Crescono finché ogni dettaglio del business è rappresentato.
+
+Poi falliscono nell'unica cosa che conta: decidere.
+
+Perché il sistema è stato costruito per descrivere la realtà. Non per cambiare azioni.
+
+La regola è più semplice:
+
+Parti dall'azione. Modella solo quello che la cambia.
+
+Tutto il resto è decorazione.

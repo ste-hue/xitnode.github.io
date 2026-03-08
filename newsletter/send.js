@@ -1,13 +1,16 @@
 require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const matter = require("gray-matter");
 const { marked } = require("marked");
 const { Resend } = require("resend");
+const sharp = require("sharp");
 
 const POSTS_DIR = path.join(__dirname, "..", "_posts");
 const TEMPLATE_PATH = path.join(__dirname, "email-template.html");
 const TRACKER_PATH = path.join(__dirname, "last-sent.json");
+const EMAIL_ASSETS_DIR = path.join(__dirname, "..", "assets", "email");
 const SITE_URL = "https://xitnode.com";
 
 function getPostFiles() {
@@ -95,21 +98,60 @@ function parsePost(filename) {
   };
 }
 
-function stripSvgForEmail(html, postUrl) {
-  return html.replace(/<figure>\s*<svg[\s\S]*?<\/svg>\s*<\/figure>/gi,
-    `<p style="padding:16px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;text-align:center;color:#666;font-size:14px;">[Diagramma — <a href="${postUrl}" style="color:#007acc;">vedi sul sito</a>]</p>`
-  );
+async function convertSvgsForEmail(html, postUrl) {
+  fs.mkdirSync(EMAIL_ASSETS_DIR, { recursive: true });
+
+  const svgRegex = /(?:<figure>\s*)?<svg[\s\S]*?<\/svg>(?:\s*<\/figure>)?/gi;
+  const matches = [...html.matchAll(svgRegex)];
+
+  if (matches.length === 0) return { html, generatedFiles: [] };
+
+  const generatedFiles = [];
+
+  for (let i = 0; i < matches.length; i++) {
+    const svgMatch = matches[i][0];
+    // Extract just the <svg>...</svg> portion
+    const svgOnly = svgMatch.match(/<svg[\s\S]*?<\/svg>/i)?.[0];
+    if (!svgOnly) continue;
+
+    const hash = crypto.createHash("md5").update(svgOnly).digest("hex").slice(0, 10);
+    const filename = `diagram-${hash}.png`;
+    const filepath = path.join(EMAIL_ASSETS_DIR, filename);
+
+    try {
+      // Render SVG to PNG at 2x for retina sharpness
+      const pngBuffer = await sharp(Buffer.from(svgOnly))
+        .png()
+        .resize({ width: 1080, withoutEnlargement: true })
+        .toBuffer();
+
+      fs.writeFileSync(filepath, pngBuffer);
+      generatedFiles.push(filepath);
+
+      const imgUrl = `${SITE_URL}/assets/email/${filename}`;
+      const imgTag = `<img src="${imgUrl}" alt="Diagramma" style="max-width:100%;height:auto;border:1px solid #eee;border-radius:4px;" />`;
+      html = html.replace(svgMatch, imgTag);
+
+      console.log(`  SVG ${i + 1}/${matches.length} → ${filename} (${(pngBuffer.length / 1024).toFixed(1)}KB)`);
+    } catch (err) {
+      console.warn(`  SVG ${i + 1}/${matches.length} conversion failed, using fallback link:`, err.message);
+      const fallback = `<p style="padding:16px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;text-align:center;color:#666;font-size:14px;">[Diagramma — <a href="${postUrl}" style="color:#007acc;">vedi sul sito</a>]</p>`;
+      html = html.replace(svgMatch, fallback);
+    }
+  }
+
+  return { html, generatedFiles };
 }
 
-function renderEmail(post) {
+async function renderEmail(post) {
   let template = fs.readFileSync(TEMPLATE_PATH, "utf-8");
-  const content = stripSvgForEmail(post.content, post.postUrl);
+  const { html: content, generatedFiles } = await convertSvgsForEmail(post.content, post.postUrl);
   template = template.replace(/\{\{TITLE\}\}/g, post.title);
   template = template.replace(/\{\{DATE\}\}/g, post.date);
   template = template.replace(/\{\{CONTENT\}\}/g, content);
   template = template.replace(/\{\{POST_URL\}\}/g, post.postUrl);
   template = template.replace(/\{\{YEAR\}\}/g, post.year);
-  return template;
+  return { html: template, generatedFiles };
 }
 
 async function sendNewsletter(html, post, { dryRun, testEmail }) {
@@ -211,7 +253,11 @@ async function main() {
   console.log(`Processing: ${filename}`);
 
   const post = parsePost(filename);
-  const html = renderEmail(post);
+  const { html, generatedFiles } = await renderEmail(post);
+
+  if (generatedFiles.length > 0) {
+    console.log(`Generated ${generatedFiles.length} PNG(s) in assets/email/`);
+  }
 
   await sendNewsletter(html, post, { dryRun, testEmail });
 

@@ -4,6 +4,7 @@ title: "Dove Sono i Miei 10x?"
 date: 2026-03-15
 categories: [xitnode]
 tags: [ai, productivity, timing, workflow]
+---
 
 Tutti dicono che l'AI li rende 10x più produttivi.
 

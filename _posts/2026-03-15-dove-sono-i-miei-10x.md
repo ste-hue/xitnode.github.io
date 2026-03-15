@@ -1,6 +1,5 @@
 ---
-
-## layout: post
+layout: post
 title: "Dove Sono i Miei 10x?"
 date: 2026-03-15
 categories: [xitnode]

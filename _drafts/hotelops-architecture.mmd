@@ -1,0 +1,40 @@
+---
+title: HotelOps Architecture
+---
+flowchart TD
+    WA["📱 WhatsApp"] -->|message| AGENT["🤖 @HotelOps Agent"]
+    AGENT -->|log| EVENTS["Events"]
+    AGENT -->|propose| YOU["👤 Stefano"]
+    YOU -->|confirm| AGENT
+
+    EVENTS -->|evaluate| ENTITIES["Entities"]
+    ENTITIES -->|promoted| OBSIDIAN["📓 Obsidian"]
+    ENTITIES -->|dimension update| DRIVE["📊 Google Drive"]
+
+    subgraph SQLite ["hotelops.db"]
+        EVENTS
+        ENTITIES
+    end
+
+    subgraph Truth ["Source of Truth"]
+        OBSIDIAN
+    end
+
+    subgraph Warehouse ["Data Warehouse"]
+        DRIVE
+    end
+
+    Truth ===|authority| SQLite
+    SQLite ===|authority| Warehouse
+
+    classDef truth fill:#4a9eff,stroke:#2d7cd4,color:#fff
+    classDef ops fill:#f59e0b,stroke:#d97706,color:#fff
+    classDef warehouse fill:#10b981,stroke:#059669,color:#fff
+    classDef agent fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    classDef input fill:#ef4444,stroke:#dc2626,color:#fff
+
+    class OBSIDIAN truth
+    class EVENTS,ENTITIES ops
+    class DRIVE warehouse
+    class AGENT agent
+    class WA,YOU input

@@ -12,6 +12,7 @@ email: ""
 tagline: "(define (think x) ...)"
 
 # Build settings
+future: true  # Include posts dated today/future (GitHub builds in UTC)
 plugins:
   - jekyll-feed
   - jekyll-sitemap

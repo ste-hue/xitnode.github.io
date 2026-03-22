@@ -27,6 +27,12 @@ layout: default
     </p>
   </header>
 
+  {%- if page.header_image -%}
+  <figure class="post-header-image">
+    <img src="{{ page.header_image | relative_url }}" alt="{{ page.title | escape }}" loading="lazy">
+  </figure>
+  {%- endif -%}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
@@ -114,5 +120,14 @@ layout: default
 
 .post-nav p {
   margin: 0.5em 0;
+}
+
+.post-header-image {
+  margin: 0 0 2em 0;
+}
+
+.post-header-image img {
+  width: 100%;
+  display: block;
 }
 </style>

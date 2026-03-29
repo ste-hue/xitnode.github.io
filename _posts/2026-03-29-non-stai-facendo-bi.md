@@ -36,7 +36,7 @@ Il lavoro riparte.
 Tre tempi. Stesso evento.
 
 
-![[prisma_temporale_fatto_finanziario.svg]]
+![Prisma temporale del fatto finanziario](/assets/images/prisma_temporale_fatto_finanziario.svg)
 
 
 ## Aggregare non è riconciliare
@@ -132,7 +132,7 @@ Risultato: coerenza rigida, incapacità di adattarsi.
 
 Entrambe evitano il problema centrale: decidere e mantenere un significato condiviso che può evolvere.
 
-![[spettro_datalake_erp_semantic_layer.svg]]
+![Spettro datalake ERP semantic layer](/assets/images/spettro_datalake_erp_semantic_layer.svg)
 ## Dashboard e agenti non sono il sistema
 
 Qui entra la distinzione che molti stanno ignorando.
@@ -169,7 +169,7 @@ Nel secondo, ogni output è una query.
 Nel primo, la complessità cresce con le domande.
 Nel secondo, si comprime.
 
-![[dashboard_vs_financial_os_architettura.svg]]
+![Dashboard vs Financial OS architettura](/assets/images/dashboard_vs_financial_os_architettura.svg)
 
 ## Il test
 

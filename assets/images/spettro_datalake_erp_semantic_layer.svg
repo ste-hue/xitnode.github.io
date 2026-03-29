@@ -1,0 +1,32 @@
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+
+<line x1="80" y1="80" x2="600" y2="80" stroke="#888780" stroke-width="0.5" opacity="0.3"/>
+<circle cx="80" cy="80" r="3" fill="#888780" opacity="0.4"/>
+<circle cx="600" cy="80" r="3" fill="#888780" opacity="0.4"/>
+
+<text x="80" y="60" text-anchor="middle" font-size="12" fill="#5F5E5A">Nessun significato</text>
+<text x="600" y="60" text-anchor="middle" font-size="12" fill="#5F5E5A">Tutto pre-definito</text>
+
+<rect x="48" y="100" width="160" height="76" rx="10" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="128" y="124" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#633806">Data lake</text>
+<text x="128" y="144" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">Accesso totale</text>
+<text x="128" y="160" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">Interpretazione continua</text>
+
+<rect x="472" y="100" width="160" height="76" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="552" y="124" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#3C3489">ERP monolitico</text>
+<text x="552" y="144" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">Coerenza rigida</text>
+<text x="552" y="160" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">Zero flessibilità</text>
+
+<text x="340" y="220" text-anchor="middle" font-size="12" fill="#888780">Entrambe evitano il problema centrale</text>
+
+<line x1="208" y1="140" x2="278" y2="270" stroke="#854F0B" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+<line x1="472" y1="140" x2="402" y2="270" stroke="#534AB7" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+
+<rect x="230" y="270" width="220" height="90" rx="14" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+<text x="340" y="298" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041">Semantic layer</text>
+<text x="340" y="318" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">Significato condiviso</text>
+<text x="340" y="336" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">che può evolvere</text>
+
+<text x="340" y="394" text-anchor="middle" font-size="12" fill="#0F6E56">Decidere e mantenere il significato</text>
+
+</svg>

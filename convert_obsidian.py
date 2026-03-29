@@ -6,6 +6,8 @@ Converts all .md files from Obsidian vault to Jekyll _posts format
 
 import os
 import glob
+import re
+import shutil
 from datetime import datetime, timedelta
 import argparse
 import sys
@@ -216,6 +218,55 @@ def generate_dates(num_files, mode="retroactive"):
     return dates
 
 
+ASSETS_DIR = "assets/images"
+
+# Extensions treated as images/embeds by Obsidian
+IMAGE_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+
+
+def convert_obsidian_embeds(content, obsidian_file, target_dir):
+    """Convert Obsidian ![[file]] embeds to Jekyll markdown and copy assets"""
+    obsidian_dir = Path(obsidian_file).parent
+    copied_files = []
+
+    def replace_embed(match):
+        raw_name = match.group(1)
+        # Strip .excalidraw suffix if present (Excalidraw exports)
+        clean_name = re.sub(r"\.excalidraw(\.\w+)$", r"\1", raw_name)
+        ext = Path(clean_name).suffix.lower()
+
+        if ext not in IMAGE_EXTENSIONS:
+            return match.group(0)  # leave non-image embeds unchanged
+
+        # Search for the source file in the Obsidian vault
+        source = None
+        for candidate in obsidian_dir.rglob(raw_name):
+            source = candidate
+            break
+        if source is None:
+            # Try clean name too
+            for candidate in obsidian_dir.rglob(clean_name):
+                source = candidate
+                break
+
+        # Determine project root from target_dir
+        project_root = Path(target_dir).parent
+        dest_dir = project_root / ASSETS_DIR
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        dest = dest_dir / clean_name
+
+        if source and source.exists() and not dest.exists():
+            shutil.copy2(source, dest)
+            copied_files.append(clean_name)
+            print(f"   📎 Copied {raw_name} → {ASSETS_DIR}/{clean_name}")
+
+        alt_text = Path(clean_name).stem.replace("_", " ").replace("-", " ").title()
+        return f"![{alt_text}](/{ASSETS_DIR}/{clean_name})"
+
+    converted = re.sub(r"!\[\[([^\]]+)\]\]", replace_embed, content)
+    return converted, copied_files
+
+
 def create_jekyll_post(obsidian_file, date, target_dir):
     """Convert single Obsidian file to Jekyll post"""
 
@@ -235,6 +286,9 @@ def create_jekyll_post(obsidian_file, date, target_dir):
     safe_title = sanitize_title(raw_title)
     jekyll_filename = f"{date}-{safe_title}.md"
     target_path = os.path.join(target_dir, jekyll_filename)
+
+    # Convert Obsidian embeds to Jekyll markdown
+    content, copied = convert_obsidian_embeds(content, obsidian_file, target_dir)
 
     # Create front matter if not exists
     if not content.strip().startswith("---"):

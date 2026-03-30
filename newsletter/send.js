@@ -144,19 +144,24 @@ async function convertSvgsForEmail(html, postUrl) {
 }
 
 async function convertSvgImgsForEmail(html, postUrl) {
-  fs.mkdirSync(EMAIL_ASSETS_DIR, { recursive: true });
-
   const imgRegex = /<img\s+src="(\/assets\/images\/[^"]+\.svg)"[^>]*>/gi;
   const matches = [...html.matchAll(imgRegex)];
 
   if (matches.length === 0) return { html, generatedFiles: [] };
 
+  fs.mkdirSync(EMAIL_ASSETS_DIR, { recursive: true });
+  const assetsRoot = path.resolve(path.join(__dirname, "..", "assets"));
   const generatedFiles = [];
 
   for (let i = 0; i < matches.length; i++) {
     const imgTag = matches[i][0];
     const svgPath = matches[i][1]; // e.g. /assets/images/diagram.svg
     const localPath = path.join(__dirname, "..", svgPath);
+
+    if (!path.resolve(localPath).startsWith(assetsRoot + path.sep)) {
+      console.warn(`  SVG path escapes assets dir: ${svgPath}, skipping`);
+      continue;
+    }
 
     if (!fs.existsSync(localPath)) {
       console.warn(`  SVG file not found: ${localPath}, using fallback link`);

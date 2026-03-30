@@ -69,6 +69,7 @@ def convert_embeds(content, dry_run=False):
         else:
             print(f"  Would copy: {raw_name} -> assets/images/{clean_name}")
 
+        # Rewrite syntax regardless of whether asset was found or copied
         alt_text = Path(clean_name).stem.replace("_", " ").replace("-", " ").title()
         return f"![{alt_text}](/assets/images/{clean_name})"
 
@@ -88,6 +89,10 @@ def main():
         print(f"File not found: {draft_path}")
         sys.exit(1)
 
+    if not OBSIDIAN_ROOT.exists():
+        print(f"WARNING: OBSIDIAN_ROOT not found: {OBSIDIAN_ROOT}", file=sys.stderr)
+        print("  Set OBSIDIAN_ROOT env var to override.", file=sys.stderr)
+
     print(f"Processing: {draft_path.name}")
 
     content = draft_path.read_text(encoding="utf-8")
@@ -96,7 +101,11 @@ def main():
     if converted != content and not dry_run:
         draft_path.write_text(converted, encoding="utf-8")
         print(f"Rewrote embeds in {draft_path.name}")
-    elif converted == content:
+        if copied:
+            print(f"Copied {len(copied)} asset(s).")
+    elif converted != content and dry_run:
+        print(f"Would rewrite embeds in {draft_path.name}")
+    else:
         print("No embeds to convert.")
 
     if missing:

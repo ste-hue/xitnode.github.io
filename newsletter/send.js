@@ -143,9 +143,62 @@ async function convertSvgsForEmail(html, postUrl) {
   return { html, generatedFiles };
 }
 
+async function convertSvgImgsForEmail(html, postUrl) {
+  fs.mkdirSync(EMAIL_ASSETS_DIR, { recursive: true });
+
+  const imgRegex = /<img\s+src="(\/assets\/images\/[^"]+\.svg)"[^>]*>/gi;
+  const matches = [...html.matchAll(imgRegex)];
+
+  if (matches.length === 0) return { html, generatedFiles: [] };
+
+  const generatedFiles = [];
+
+  for (let i = 0; i < matches.length; i++) {
+    const imgTag = matches[i][0];
+    const svgPath = matches[i][1]; // e.g. /assets/images/diagram.svg
+    const localPath = path.join(__dirname, "..", svgPath);
+
+    if (!fs.existsSync(localPath)) {
+      console.warn(`  SVG file not found: ${localPath}, using fallback link`);
+      const fallback = `<p style="padding:16px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;text-align:center;color:#666;font-size:14px;">[Diagramma — <a href="${postUrl}" style="color:#007acc;">vedi sul sito</a>]</p>`;
+      html = html.replace(imgTag, fallback);
+      continue;
+    }
+
+    const svgContent = fs.readFileSync(localPath, "utf-8");
+    const hash = crypto.createHash("md5").update(svgContent).digest("hex").slice(0, 10);
+    const filename = `diagram-${hash}.png`;
+    const filepath = path.join(EMAIL_ASSETS_DIR, filename);
+
+    try {
+      const pngBuffer = await sharp(Buffer.from(svgContent))
+        .png()
+        .resize({ width: 1080, withoutEnlargement: true })
+        .toBuffer();
+
+      fs.writeFileSync(filepath, pngBuffer);
+      generatedFiles.push(filepath);
+
+      const imgUrl = `${SITE_URL}/assets/email/${filename}`;
+      const newImgTag = `<img src="${imgUrl}" alt="Diagramma" style="max-width:100%;height:auto;border:1px solid #eee;border-radius:4px;" />`;
+      html = html.replace(imgTag, newImgTag);
+
+      console.log(`  SVG img ${i + 1}/${matches.length} → ${filename} (${(pngBuffer.length / 1024).toFixed(1)}KB)`);
+    } catch (err) {
+      console.warn(`  SVG img ${i + 1}/${matches.length} conversion failed:`, err.message);
+      const fallback = `<p style="padding:16px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;text-align:center;color:#666;font-size:14px;">[Diagramma — <a href="${postUrl}" style="color:#007acc;">vedi sul sito</a>]</p>`;
+      html = html.replace(imgTag, fallback);
+    }
+  }
+
+  return { html, generatedFiles };
+}
+
 async function renderEmail(post) {
   let template = fs.readFileSync(TEMPLATE_PATH, "utf-8");
-  const { html: content, generatedFiles } = await convertSvgsForEmail(post.content, post.postUrl);
+  const { html: inlineConverted, generatedFiles: inlineFiles } = await convertSvgsForEmail(post.content, post.postUrl);
+  const { html: content, generatedFiles: imgFiles } = await convertSvgImgsForEmail(inlineConverted, post.postUrl);
+  const generatedFiles = [...inlineFiles, ...imgFiles];
   template = template.replace(/\{\{TITLE\}\}/g, post.title);
   template = template.replace(/\{\{DATE\}\}/g, post.date);
   template = template.replace(/\{\{CONTENT\}\}/g, content);

@@ -92,7 +92,7 @@ E quando agisci senza aver testato nulla, il tuo primo movimento √® anche il pi√
 Hai evitato dieci piccoli errori visibili.
 Hai costruito un errore grande invisibile.
 
-<p style="text-align: center;"><img src="/assets/images/retard_maxing.svg" alt="Retard maxing: prima capisci vs prova e scopri" style="max-width: 600px; width: 100%; height: auto;"></p>
+<p style="text-align: center;"><img src="/assets/images/retard_maxing.svg" alt="Retard maxing: prima capisci vs prova e scopri" style="max-width: 800px; width: 100%; height: auto;"></p>
 
 ## Gli asymmetric bets
 

@@ -117,7 +117,7 @@ La security utile esiste: evitare downside terminali.
 Quella inutile è un'altra cosa: la pretesa di capire tutto prima di muoverti.
 
 Non ti protegge dal rischio.
-Ti protegge dall'imbarazzo di essere stato sbagliato pubblicamente.
+Ti protegge dall'imbarazzo di esserti sbagliato pubblicamente.
 
 E ti rende lento.
 

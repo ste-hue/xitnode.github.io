@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="'Virgil', 'Comic Sans MS', sans-serif">
+  <!-- Background -->
+  <rect width="900" height="640" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-size="26" fill="#1e1e1e" font-weight="bold">Ontology vs Canonical Language</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" fill="#757575" font-style="italic">two different bets on how to model a domain</text>
+
+  <!-- LEFT ZONE: Grand Ontology -->
+  <rect x="40" y="95" width="390" height="510" rx="12" ry="12" fill="#ffc9c9" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+
+  <text x="235" y="130" text-anchor="middle" font-size="22" fill="#991b1b" font-weight="bold">Grand Ontology</text>
+  <text x="235" y="155" text-anchor="middle" font-size="13" fill="#991b1b" font-style="italic">complete model of the world</text>
+
+  <!-- Premises box -->
+  <rect x="65" y="175" width="340" height="110" rx="8" ry="8" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+  <text x="235" y="200" text-anchor="middle" font-size="14" fill="#1e1e1e" font-weight="bold">Premises</text>
+  <text x="235" y="225" text-anchor="middle" font-size="13" fill="#1e1e1e">model everything up-front</text>
+  <text x="235" y="248" text-anchor="middle" font-size="13" fill="#1e1e1e">model stays stable</text>
+  <text x="235" y="271" text-anchor="middle" font-size="13" fill="#1e1e1e">completeness required</text>
+
+  <!-- Problem 1 -->
+  <rect x="65" y="305" width="340" height="50" rx="8" ry="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+  <text x="235" y="335" text-anchor="middle" font-size="13" fill="#1e1e1e">domain shifts while you model it</text>
+
+  <!-- Problem 2 -->
+  <rect x="65" y="370" width="340" height="50" rx="8" ry="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+  <text x="235" y="400" text-anchor="middle" font-size="13" fill="#1e1e1e">relations emerge from use, not design</text>
+
+  <!-- Problem 3 -->
+  <rect x="65" y="435" width="340" height="50" rx="8" ry="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+  <text x="235" y="465" text-anchor="middle" font-size="13" fill="#1e1e1e">by the time it's done, code moved on</text>
+
+  <!-- Outcome -->
+  <rect x="65" y="510" width="340" height="70" rx="8" ry="8" fill="#ffc9c9" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="235" y="535" text-anchor="middle" font-size="13" fill="#1e1e1e" font-weight="bold">Outcome</text>
+  <text x="235" y="560" text-anchor="middle" font-size="13" fill="#1e1e1e">beautiful document nobody queries</text>
+
+  <!-- VS arrow in middle -->
+  <g>
+    <line x1="445" y1="330" x2="465" y2="330" stroke="#757575" stroke-width="2"/>
+    <text x="450" y="320" text-anchor="middle" font-size="16" fill="#757575" font-weight="bold">vs</text>
+  </g>
+
+  <!-- RIGHT ZONE: Canonical Language -->
+  <rect x="470" y="95" width="390" height="510" rx="12" ry="12" fill="#b2f2bb" fill-opacity="0.3" stroke="#22c55e" stroke-width="1.5"/>
+
+  <text x="665" y="130" text-anchor="middle" font-size="22" fill="#15803d" font-weight="bold">Canonical Language</text>
+  <text x="665" y="155" text-anchor="middle" font-size="13" fill="#15803d" font-style="italic">minimum vocabulary that works</text>
+
+  <!-- Premises box -->
+  <rect x="495" y="175" width="340" height="110" rx="8" ry="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="665" y="200" text-anchor="middle" font-size="14" fill="#1e1e1e" font-weight="bold">Premises</text>
+  <text x="665" y="225" text-anchor="middle" font-size="13" fill="#1e1e1e">start small, grow by use</text>
+  <text x="665" y="248" text-anchor="middle" font-size="13" fill="#1e1e1e">domain change is expected</text>
+  <text x="665" y="271" text-anchor="middle" font-size="13" fill="#1e1e1e">completeness is a trap</text>
+
+  <!-- Principle 1 -->
+  <rect x="495" y="305" width="340" height="50" rx="8" ry="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="665" y="335" text-anchor="middle" font-size="13" fill="#1e1e1e">strong identity: canonical IDs, no raw strings</text>
+
+  <!-- Principle 2 -->
+  <rect x="495" y="370" width="340" height="50" rx="8" ry="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="665" y="400" text-anchor="middle" font-size="13" fill="#1e1e1e">explicit uncertainty: Entity | List | None</text>
+
+  <!-- Principle 3 -->
+  <rect x="495" y="435" width="340" height="50" rx="8" ry="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="665" y="465" text-anchor="middle" font-size="13" fill="#1e1e1e">derived from actions, not maps</text>
+
+  <!-- Outcome -->
+  <rect x="495" y="510" width="340" height="70" rx="8" ry="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="665" y="535" text-anchor="middle" font-size="13" fill="#1e1e1e" font-weight="bold">Outcome</text>
+  <text x="665" y="560" text-anchor="middle" font-size="13" fill="#1e1e1e">contract that survives use</text>
+</svg>

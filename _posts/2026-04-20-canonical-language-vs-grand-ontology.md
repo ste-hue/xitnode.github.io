@@ -71,7 +71,7 @@ counterparty:vendor_x
 ```
 
 Con regole di disambiguazione esplicite:
-- Un alias table che mappia varianti → entità canonica
+- Un alias table che mappa varianti → entità canonica
 - Nessuna stringa libera dove serve un'entità
 - Ogni riferimento si risolve a un ID o fallisce
 

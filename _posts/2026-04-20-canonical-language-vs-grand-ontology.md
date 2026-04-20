@@ -65,9 +65,9 @@ Non "il sistema capirà".
 
 ID canonici:
 ```
-company:orti
-bank_account:bper_intur_001
-counterparty:booking_com
+company:acme
+bank_account:main_001
+counterparty:vendor_x
 ```
 
 Con regole di disambiguazione esplicite:
@@ -92,13 +92,13 @@ Esempio:
 
 **API giocattolo:**
 ```python
-resolve_entity("Booking.com payment") -> Entity
+resolve_entity("vendor payment") -> Entity
 ```
 Sempre ritorna qualcosa. Anche quando non sa.
 
 **API seria:**
 ```python
-resolve_entity("Booking.com payment") -> Entity | List[Entity] | None
+resolve_entity("vendor payment") -> Entity | List[Entity] | None
 ```
 - Un'entità se match perfetto
 - Lista di candidati se ambiguo

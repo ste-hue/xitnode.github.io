@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" font-family="'Virgil', 'Comic Sans MS', sans-serif">
+  <rect width="900" height="540" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-size="26" fill="#1e1e1e" font-weight="bold">Tre livelli, tre ruoli</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" fill="#757575" font-style="italic">se uno fa il lavoro dell'altro, perdi il controllo</text>
+
+  <!-- Project layer -->
+  <rect x="80" y="100" width="740" height="110" rx="12" ry="12" fill="#b2f2bb" fill-opacity="0.4" stroke="#22c55e" stroke-width="2"/>
+  <text x="120" y="135" font-size="22" fill="#15803d" font-weight="bold">PROJECT</text>
+  <text x="120" y="160" font-size="14" fill="#15803d" font-style="italic">contiene</text>
+  <text x="500" y="155" text-anchor="middle" font-size="14" fill="#1e1e1e">scope, perimetro, intento</text>
+  <text x="500" y="180" text-anchor="middle" font-size="13" fill="#495057" font-style="italic">"cosa stiamo facendo"</text>
+  <text x="800" y="200" text-anchor="end" font-size="12" fill="#15803d" font-style="italic">forecast vive qui</text>
+
+  <!-- Down arrow 1 -->
+  <line x1="450" y1="215" x2="450" y2="245" stroke="#1e1e1e" stroke-width="2"/>
+  <polygon points="446,245 450,253 454,245" fill="#1e1e1e"/>
+
+  <!-- Commitment layer -->
+  <rect x="160" y="255" width="580" height="110" rx="12" ry="12" fill="#a5d8ff" fill-opacity="0.4" stroke="#4a9eed" stroke-width="2"/>
+  <text x="200" y="290" font-size="22" fill="#1971c2" font-weight="bold">COMMITMENT</text>
+  <text x="200" y="315" font-size="14" fill="#1971c2" font-style="italic">vincola</text>
+  <text x="510" y="310" text-anchor="middle" font-size="14" fill="#1e1e1e">decisione che crea esposizione futura</text>
+  <text x="510" y="335" text-anchor="middle" font-size="13" fill="#495057" font-style="italic">"a quanto siamo legati"</text>
+  <text x="720" y="355" text-anchor="end" font-size="12" fill="#1971c2" font-style="italic">controllo vive qui</text>
+
+  <!-- Down arrow 2 -->
+  <line x1="450" y1="370" x2="450" y2="400" stroke="#1e1e1e" stroke-width="2"/>
+  <polygon points="446,400 450,408 454,400" fill="#1e1e1e"/>
+
+  <!-- Cassa layer -->
+  <rect x="240" y="410" width="420" height="100" rx="12" ry="12" fill="#ffc9c9" fill-opacity="0.4" stroke="#ef4444" stroke-width="2"/>
+  <text x="280" y="445" font-size="22" fill="#991b1b" font-weight="bold">CASSA</text>
+  <text x="280" y="470" font-size="14" fill="#991b1b" font-style="italic">segue</text>
+  <text x="525" y="455" text-anchor="middle" font-size="14" fill="#1e1e1e">esecuzione del pagamento</text>
+  <text x="525" y="478" text-anchor="middle" font-size="13" fill="#495057" font-style="italic">"chi è uscito davvero"</text>
+  <text x="640" y="500" text-anchor="end" font-size="12" fill="#991b1b" font-style="italic">l'ERP arriva qui</text>
+</svg>

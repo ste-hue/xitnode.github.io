@@ -234,9 +234,3 @@ Ma la domanda vera sotto è: **at what point does ambiguity cost more than struc
 Quando attraversi quel punto, non stai costruendo "better tools".
 
 Stai costruendo organizational cognition system.
-
----
-
-*10 maggio 2026*
-
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>

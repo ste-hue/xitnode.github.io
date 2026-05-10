@@ -14,9 +14,9 @@ Sembra che il sistema sia diventato assurdamente pesante. Ma il sistema non è d
 
 ## Social Truth Reconstruction
 
-La famiglia ricostruisce verità socialmente.
+Le piccole organizzazioni ricostruiscono verità socialmente.
 
-Rosa ricorda. Qualcuno controlla una banca. Qualcuno esporta Esolver. Un foglio circola. La gente negozia realtà verbalmente.
+Qualcuno ricorda a memoria. Qualcuno controlla un conto bancario. Qualcuno esporta dal gestionale. Un foglio circola. La gente negozia realtà verbalmente.
 
 **Truth = memory + interpretation**
 

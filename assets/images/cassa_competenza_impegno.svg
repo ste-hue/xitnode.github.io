@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .ttl { font-size: 22px; fill: #1e1e1e; }
+    .sub { font-size: 14px; fill: #757575; }
+    .meta { font-size: 14px; fill: #757575; }
+    .box-title { font-size: 16px; fill: #1e1e1e; font-weight: bold; }
+    .box-body { font-size: 14px; fill: #1e1e1e; }
+    .inv-line1 { font-size: 16px; fill: #1e1e1e; font-weight: bold; }
+    .inv-line2 { font-size: 14px; fill: #1e1e1e; }
+    .axis { font-size: 14px; fill: #757575; }
+    .marker-imp { font-size: 14px; fill: #9a5030; }
+    .marker-com { font-size: 14px; fill: #5b3aa6; }
+    .marker-cas { font-size: 14px; fill: #15803d; }
+    .insight { font-size: 16px; fill: #1e1e1e; }
+  </style>
+
+  <!-- title -->
+  <text x="400" y="30" text-anchor="middle" class="ttl">Una fattura, tre dimensioni temporali</text>
+  <text x="400" y="52" text-anchor="middle" class="sub">non sono tag finanziari — sono assi della realtà</text>
+
+  <!-- arrows (background so they tuck under boxes) -->
+  <line x1="340" y1="180" x2="170" y2="258" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="170,258 180,250 178,262" fill="#f59e0b"/>
+
+  <line x1="400" y1="180" x2="400" y2="258" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="395,258 405,258 400,268" fill="#8b5cf6"/>
+
+  <line x1="460" y1="180" x2="630" y2="258" stroke="#22c55e" stroke-width="2"/>
+  <polygon points="630,258 622,250 624,262" fill="#22c55e"/>
+
+  <!-- invoice (center top) -->
+  <rect x="300" y="100" width="200" height="80" rx="10" ry="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="3"/>
+  <text x="400" y="135" text-anchor="middle" class="inv-line1">Invoice #4521</text>
+  <text x="400" y="158" text-anchor="middle" class="inv-line2">Fornitore X · 12.000 €</text>
+
+  <!-- meta line -->
+  <text x="400" y="210" text-anchor="middle" class="meta">stesso oggetto, tre proiezioni</text>
+
+  <!-- IMPEGNO -->
+  <rect x="60" y="260" width="200" height="110" rx="10" ry="10" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+  <text x="160" y="295" text-anchor="middle" class="box-title">IMPEGNO</text>
+  <text x="160" y="320" text-anchor="middle" class="box-body">scadenza futura</text>
+  <text x="160" y="342" text-anchor="middle" class="box-body">obbligazione</text>
+
+  <!-- COMPETENZA -->
+  <rect x="300" y="260" width="200" height="110" rx="10" ry="10" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="400" y="295" text-anchor="middle" class="box-title">COMPETENZA</text>
+  <text x="400" y="320" text-anchor="middle" class="box-body">consumo contabile</text>
+  <text x="400" y="342" text-anchor="middle" class="box-body">costo P&amp;L</text>
+
+  <!-- CASSA -->
+  <rect x="540" y="260" width="200" height="110" rx="10" ry="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="295" text-anchor="middle" class="box-title">CASSA</text>
+  <text x="640" y="320" text-anchor="middle" class="box-body">movimento bancario</text>
+  <text x="640" y="342" text-anchor="middle" class="box-body">pagamento</text>
+
+  <!-- timeline -->
+  <text x="400" y="420" text-anchor="middle" class="axis">asse temporale operativo</text>
+  <line x1="60" y1="445" x2="730" y2="445" stroke="#1e1e1e" stroke-width="2"/>
+  <polygon points="740,445 728,440 728,450" fill="#1e1e1e"/>
+
+  <!-- timeline ticks -->
+  <line x1="160" y1="440" x2="160" y2="450" stroke="#1e1e1e" stroke-width="2"/>
+  <line x1="400" y1="440" x2="400" y2="450" stroke="#1e1e1e" stroke-width="2"/>
+  <line x1="640" y1="440" x2="640" y2="450" stroke="#1e1e1e" stroke-width="2"/>
+
+  <text x="160" y="470" text-anchor="middle" class="marker-imp">reg. fattura</text>
+  <text x="400" y="470" text-anchor="middle" class="marker-com">chiusura mese</text>
+  <text x="640" y="470" text-anchor="middle" class="marker-cas">data pagamento</text>
+
+  <!-- insight bar -->
+  <rect x="80" y="520" width="640" height="60" rx="10" ry="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <text x="400" y="557" text-anchor="middle" class="insight">il kernel non sceglie quale è vero — li tiene tutti e tre, contemporaneamente</text>
+</svg>

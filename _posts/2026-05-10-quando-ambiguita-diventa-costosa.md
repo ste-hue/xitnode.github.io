@@ -148,6 +148,8 @@ Una fattura esiste simultaneamente come:
 
 Stessa fattura, tre dimensioni temporali-operative.
 
+<p style="text-align: center;"><img src="/assets/images/cassa_competenza_impegno.svg" alt="Cassa, Competenza, Impegno: tre dimensioni della stessa fattura" style="max-width: 800px; width: 100%; height: auto;"></p>
+
 Non stai modellando tables. Stai modellando **multi-dimensional operational reality.**
 
 ## Verticals Are Projections, Not Owners

@@ -41,13 +41,13 @@ A quel punto, **ambiguity becomes expensive.**
 
 Non è più "qualche export che non torna". È "decisione sbagliata che costa soldi reali".
 
-Quando attraversi quel punto, la verbale negotiation smette di scalare. L'entropy cresce più veloce di quanto puoi negoziare.
+Oltre quel punto, la verbale negotiation smette di scalare. L'entropy cresce più veloce di quanto la si possa negoziare.
 
-## Quello Che Stai Effettivamente Chiedendo
+## La Domanda Sotto
 
-Non stai chiedendo "come miglioro gli script".
+La domanda non è "come miglioriamo gli script".
 
-Stai chiedendo:
+La domanda è:
 - Cosa conta come realtà?
 - Chi definisce verità?
 - Cosa è autorevole?
@@ -69,7 +69,7 @@ Verso:
 explicit, inspectable state
 ```
 
-Non stai costruendo "better data platform". Stai costruendo il substrate che definisce cosa conta come realtà.
+Non è "better data platform". È il substrate che definisce cosa conta come realtà.
 
 <figure>
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:system-ui,sans-serif">
@@ -150,7 +150,7 @@ Stessa fattura, tre dimensioni temporali-operative.
 
 <p style="text-align: center;"><img src="/assets/images/cassa_competenza_impegno.svg" alt="Cassa, Competenza, Impegno: tre dimensioni della stessa fattura" style="max-width: 800px; width: 100%; height: auto;"></p>
 
-Non stai modellando tables. Stai modellando **multi-dimensional operational reality.**
+Non si modellano tables. Si modella **multi-dimensional operational reality.**
 
 ## Verticals Are Projections, Not Owners
 
@@ -183,7 +183,7 @@ Il sistema deve sapere:
 - From where it came
 - What evidence supports it
 
-Se puoi scrivere dati senza produrre lineage, il sistema è rotto by design.
+Se è possibile scrivere dati senza produrre lineage, il sistema è rotto by design.
 
 Gate = truth boundary. Byproduct architecture: lineage emerge obbligatoriamente.
 
@@ -207,11 +207,11 @@ Questi forzano reality contact.
 
 ## Mature Framing
 
-Non chiederti: "Are we overengineering?"
+La domanda non è: "Are we overengineering?"
 
-Chiedi: "At what point does explicit structure reduce total chaos faster than it creates new complexity?"
+La domanda è: "At what point does explicit structure reduce total chaos faster than it creates new complexity?"
 
-**Hai già attraversato quel punto quando lineage e provenance improvvisamente contano.**
+**Quel punto è già stato attraversato quando lineage e provenance improvvisamente contano.**
 
 Quando ambiguity diventa operationally expensive, social truth reconstruction smette di scalare.
 
@@ -233,6 +233,6 @@ La risposta tecnica è: build kernel. Build trust substrate.
 
 Ma la domanda vera sotto è: **at what point does ambiguity cost more than structure?**
 
-Quando attraversi quel punto, non stai costruendo "better tools".
+Oltre quel punto, non si tratta più di "better tools".
 
-Stai costruendo organizational cognition system.
+Si tratta di un organizational cognition system.

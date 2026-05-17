@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arr-purp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="24" font-weight="600" fill="#1e1e1e">Two Systems, Two Loops</text>
+  <text x="400" y="58" text-anchor="middle" font-size="14" fill="#757575">Why a small restaurant feels saner than a corporate office.</text>
+
+  <!-- LEFT: Bounded -->
+  <rect x="30" y="85" width="340" height="500" rx="12" fill="#d3f9d8" fill-opacity="0.40" stroke="#22c55e" stroke-width="1"/>
+  <text x="200" y="108" text-anchor="middle" font-size="14" font-weight="600" fill="#15803d">BOUNDED — loop closes</text>
+
+  <!-- Owner -->
+  <circle cx="200" cy="170" r="38" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="200" y="176" text-anchor="middle" font-size="15" font-weight="600" fill="#1e1e1e">owner</text>
+
+  <!-- Four entities -->
+  <rect x="60" y="245" width="110" height="50" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="115" y="276" text-anchor="middle" font-size="14" fill="#1e1e1e">customers</text>
+
+  <rect x="230" y="245" width="110" height="50" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="285" y="276" text-anchor="middle" font-size="14" fill="#1e1e1e">inventory</text>
+
+  <rect x="60" y="320" width="110" height="50" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="115" y="351" text-anchor="middle" font-size="14" fill="#1e1e1e">staff</text>
+
+  <rect x="230" y="320" width="110" height="50" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="285" y="351" text-anchor="middle" font-size="14" fill="#1e1e1e">cash</text>
+
+  <rect x="145" y="400" width="110" height="50" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="200" y="430" text-anchor="middle" font-size="13" fill="#1e1e1e">consequences</text>
+
+  <!-- Arrows: owner sees everything -->
+  <line x1="178" y1="206" x2="135" y2="245" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="222" y1="206" x2="265" y2="245" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- vertical descents -->
+  <line x1="115" y1="295" x2="115" y2="320" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="285" y1="295" x2="285" y2="320" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- cross -->
+  <line x1="170" y1="345" x2="230" y2="345" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- to consequences -->
+  <line x1="160" y1="370" x2="180" y2="400" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="240" y1="370" x2="220" y2="400" stroke="#22c55e" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- feedback loop closing back to owner -->
+  <path d="M 145 425 Q 50 420 50 250 Q 50 175 162 170" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arr-green)"/>
+  <text x="20" y="335" font-size="12" font-weight="600" fill="#15803d" transform="rotate(-90 25 335)">feedback closes</text>
+
+  <!-- Caption -->
+  <rect x="60" y="480" width="280" height="50" rx="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+  <text x="200" y="503" text-anchor="middle" font-size="13" font-weight="600" fill="#1e1e1e">reality persists.</text>
+  <text x="200" y="520" text-anchor="middle" font-size="13" font-weight="600" fill="#1e1e1e">memory accumulates.</text>
+
+  <!-- RIGHT: Fragmented -->
+  <rect x="420" y="85" width="350" height="500" rx="12" fill="#ffc9c9" fill-opacity="0.35" stroke="#ef4444" stroke-width="1"/>
+  <text x="595" y="108" text-anchor="middle" font-size="14" font-weight="600" fill="#b91c1c">FRAGMENTED — loop breaks</text>
+
+  <!-- Silos -->
+  <g>
+    <rect x="440" y="135" width="95" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="487" y="163" text-anchor="middle" font-size="13" fill="#1e1e1e">finance</text>
+  </g>
+  <g>
+    <rect x="547" y="135" width="95" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="594" y="163" text-anchor="middle" font-size="13" fill="#1e1e1e">ops</text>
+  </g>
+  <g>
+    <rect x="654" y="135" width="106" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="707" y="163" text-anchor="middle" font-size="13" fill="#1e1e1e">sales</text>
+  </g>
+  <g>
+    <rect x="440" y="195" width="95" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="487" y="223" text-anchor="middle" font-size="13" fill="#1e1e1e">product</text>
+  </g>
+  <g>
+    <rect x="547" y="195" width="95" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="594" y="223" text-anchor="middle" font-size="13" fill="#1e1e1e">legal</text>
+  </g>
+  <g>
+    <rect x="654" y="195" width="106" height="45" rx="8" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+    <text x="707" y="223" text-anchor="middle" font-size="13" fill="#1e1e1e">support</text>
+  </g>
+
+  <!-- Broken connection X marks (between silos) -->
+  <g font-size="20" font-weight="700" fill="#ef4444" text-anchor="middle">
+    <text x="541" y="164">×</text>
+    <text x="648" y="164">×</text>
+    <text x="541" y="224">×</text>
+    <text x="648" y="224">×</text>
+    <text x="487" y="192">×</text>
+    <text x="594" y="192">×</text>
+    <text x="707" y="192">×</text>
+  </g>
+
+  <!-- Tribal knowledge quotes -->
+  <text x="440" y="280" font-size="13" fill="#757575">"ask finance"</text>
+  <text x="440" y="300" font-size="13" fill="#757575">"she handles that client"</text>
+  <text x="440" y="320" font-size="13" fill="#757575">"he remembers why we changed it"</text>
+  <text x="440" y="340" font-size="13" fill="#757575">"only they know how it works"</text>
+
+  <!-- Human bridge -->
+  <circle cx="600" cy="395" r="20" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="580" y="415" width="40" height="45" rx="8" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="600" y="478" text-anchor="middle" font-size="13" font-weight="600" fill="#8b5cf6">human bridge</text>
+
+  <!-- Dotted lines from silos to human -->
+  <g stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2,4" fill="none">
+    <line x1="487" y1="180" x2="585" y2="390"/>
+    <line x1="594" y1="180" x2="600" y2="390"/>
+    <line x1="707" y1="180" x2="615" y2="390"/>
+    <line x1="487" y1="240" x2="585" y2="395"/>
+    <line x1="707" y1="240" x2="615" y2="395"/>
+  </g>
+
+  <!-- Caption -->
+  <rect x="440" y="505" width="320" height="50" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+  <text x="600" y="528" text-anchor="middle" font-size="13" font-weight="600" fill="#1e1e1e">opacity becomes job security.</text>
+  <text x="600" y="545" text-anchor="middle" font-size="13" font-weight="600" fill="#1e1e1e">ambiguity becomes infrastructure.</text>
+
+  <!-- Footer -->
+  <text x="400" y="605" text-anchor="middle" font-size="13" font-style="italic" fill="#757575">Same problem, two failure modes.</text>
+</svg>

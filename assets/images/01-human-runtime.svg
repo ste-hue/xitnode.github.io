@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="ui-sans-serif, system-ui, sans-serif">
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="24" font-weight="600" fill="#1e1e1e">The Human Runtime</text>
+  <text x="400" y="58" text-anchor="middle" font-size="14" fill="#757575">Software stores data. People store state.</text>
+
+  <!-- Software layer zone -->
+  <rect x="30" y="90" width="740" height="160" rx="12" fill="#dbe4ff" fill-opacity="0.45" stroke="#4a9eed" stroke-width="1"/>
+  <text x="50" y="112" font-size="13" font-weight="600" fill="#2563eb">SOFTWARE LAYER — fragments, no synthesis</text>
+
+  <!-- Six fragmented systems -->
+  <g>
+    <rect x="60" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="110" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">CRM</text>
+    <text x="110" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+  <g>
+    <rect x="180" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="230" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">ERP</text>
+    <text x="230" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+  <g>
+    <rect x="300" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="350" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">Tickets</text>
+    <text x="350" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+  <g>
+    <rect x="420" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="470" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">Slack</text>
+    <text x="470" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+  <g>
+    <rect x="540" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="590" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">Drive</text>
+    <text x="590" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+  <g>
+    <rect x="660" y="140" width="100" height="50" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+    <text x="710" y="171" text-anchor="middle" font-size="15" fill="#1e1e1e">Email</text>
+    <text x="710" y="208" text-anchor="middle" font-size="12" fill="#757575">fragments</text>
+  </g>
+
+  <!-- Dotted lines converging on human -->
+  <g stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2,4" fill="none">
+    <line x1="110" y1="220" x2="400" y2="370"/>
+    <line x1="230" y1="220" x2="400" y2="370"/>
+    <line x1="350" y1="220" x2="400" y2="370"/>
+    <line x1="470" y1="220" x2="400" y2="370"/>
+    <line x1="590" y1="220" x2="400" y2="370"/>
+    <line x1="710" y1="220" x2="400" y2="370"/>
+  </g>
+
+  <!-- Human figure -->
+  <g>
+    <circle cx="400" cy="345" r="30" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="370" y="378" width="60" height="70" rx="10" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="400" y="418" text-anchor="middle" font-size="13" font-weight="600" fill="#1e1e1e">HUMAN</text>
+    <text x="400" y="435" text-anchor="middle" font-size="12" font-weight="600" fill="#1e1e1e">RUNTIME</text>
+  </g>
+
+  <!-- Roles left -->
+  <text x="110" y="402" font-size="15" fill="#8b5cf6">memory</text>
+  <text x="110" y="425" font-size="15" fill="#8b5cf6">sync</text>
+  <text x="110" y="448" font-size="15" fill="#8b5cf6">translation</text>
+
+  <!-- Roles right -->
+  <text x="660" y="402" font-size="15" fill="#8b5cf6">continuity</text>
+  <text x="660" y="425" font-size="15" fill="#8b5cf6">interpretation</text>
+  <text x="660" y="448" font-size="15" fill="#8b5cf6">intent</text>
+
+  <!-- Arrows from roles to human -->
+  <defs>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <line x1="200" y1="420" x2="365" y2="420" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <line x1="655" y1="420" x2="435" y2="420" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- Cost banner -->
+  <rect x="270" y="490" width="260" height="46" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+  <text x="400" y="519" text-anchor="middle" font-size="15" font-weight="600" fill="#1e1e1e">burnout = infrastructure cost</text>
+
+  <!-- Footer caption -->
+  <text x="400" y="570" text-anchor="middle" font-size="13" font-style="italic" fill="#757575">Replace one operator → systemic amnesia.</text>
+  <text x="400" y="590" text-anchor="middle" font-size="13" font-style="italic" fill="#757575">The actual system was never inside the software.</text>
+</svg>

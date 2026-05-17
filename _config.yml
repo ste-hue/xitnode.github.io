@@ -18,14 +18,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# GitHub Pages safe settings
-safe: true
+# Build settings
 source: .
 destination: ./_site
 incremental: false
-highlighter: rouge
-gist:
-  noscript: false
 
 # Timezone
 timezone: Europe/Rome

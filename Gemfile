@@ -1,21 +1,24 @@
 source "https://rubygems.org"
 
-# GitHub Pages gem (includes Jekyll and supported plugins)
-gem "github-pages", group: :jekyll_plugins
+# Jekyll core (was previously pulled in by the github-pages gem)
+gem "jekyll", "~> 4.4"
+gem "minima", "~> 2.5"
 
-# Required for Ruby 3.4+
+# Stdlib gems no longer bundled with Ruby 3.4+ / 4.x
 gem "csv"
 gem "base64"
 gem "bigdecimal"
+gem "logger"
+gem "webrick"
 
-# Additional gems for local development
+# Jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
 end
 
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows and JRuby do not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"
